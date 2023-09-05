@@ -3,48 +3,41 @@ import { Artist } from '../interfaces/artist.interface'
 
 const ArtistSchema = new Schema<Artist>({
   imageURL: {
-    type: String,
-    required: [true, 'MUST_PROVIDE_IMAGE_URL']
+    type: String
   },
   pseudonym: {
-    type: String,
-    required: [true, 'MUST_PROVIDE_PSEUDONYM']
+    type: String
   },
   fullName: {
-    type: String,
-    required: [true, 'MUST_PROVIDE_FULL_NAME']
+    type: String
   },
   born: {
-    type: String,
-    required: [true, 'MUST_PROVIDE_BORN']
+    type: String
   },
   biography: {
-    type: String,
-    required: [true, 'MUST_PROVIDE_BIOGRAPHY']
+    type: String
   }, 
   activity: {
-    type: [Number, String || Number],
-    required: [true, 'MUST_PROVIDE_ACTIVITY']
+    type: {
+      from: Number,
+      to: String
+    }
   },
   nationality: {
-    type: String,
-    required: [true, 'MUST_PROVIDE_NATIONALITY']
+    type: String
   },
   children: {
-    type: String,
-    required: [true, 'MUST_PROVIDE_CHILDREN']
+    type: String
   }, 
   genre:  {
-    type: String,
-    required: [true, 'MUST_PROVIDE_GENRE']
+    type: String
   },
   listen:  {
     type: {
       spotify: String,
       ytbMusic: String,
       appleMusic: String
-    },
-    required: [true, 'MUST_PROVIDE_LISTEN']
+    }
   },
   profiles: {
     threads: String,

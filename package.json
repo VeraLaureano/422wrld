@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/VeraLaureano/modo-diablo-api#readme",
   "dependencies": {
+    "@types/cors": "^2.8.14",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^7.5.0"

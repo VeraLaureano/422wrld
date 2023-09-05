@@ -27,10 +27,13 @@ export interface Artist {
   fullName: string;
   born: string;
   biography: string;
-  activity: [number, number | string];
+  activity: {
+    from: number;
+    to: string;
+  };
   nationality: string;
-  children: string | Array<string>;
-  genre: string | Array<string>;
+  children: string;
+  genre: string;
   listen: Platforms;
   profiles: Profile;
   albums: [];

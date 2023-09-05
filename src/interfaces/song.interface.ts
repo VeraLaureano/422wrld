@@ -4,7 +4,7 @@ export interface Song {
   producer: string | Array<string>;
   genre: string | Array<string>;
   release: string;
-  time: { minutes: number; seconds: number };
+  duration: { minutes: number; seconds: number };
   spotify: string;
   cover: string;
   rating: number;

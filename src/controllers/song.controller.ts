@@ -1,54 +1,55 @@
 import { Request, Response } from 'express'
-import { findAllArtists, findOneArtist, createArtist, findAndDeleteArtist, findAndUpdateArtist } from '../services/artist.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
+import { createSong, findAllSongs, findAndDeleteSong, findAndUpdateSong, findOneSong } from '../services/song.service'
 
-export const getAllArtists = asyncWrapper(
+export const getAllSongs = asyncWrapper(
   async (_req: Request, res: Response) => {
-    const data = await findAllArtists()
-    return res.status(200).json(data)
-  }
-)
-
-export const getOneArtist = asyncWrapper(
-  async ({params: {id}}: Request, res: Response) => {
-    const data = await findOneArtist(id)
-
-    if (!data) 
-      return res.status(500).json({
-        message: `NO_SONG_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+    const data = await findAllSongs()
 
     return res.status(200).json(data)
   }
 )
 
-export const postArtist = asyncWrapper (
-  async ({body}: Request, res: Response) => {
-    const newData = await createArtist(body)
-    return res.status(201).json(newData)
-  }
-)
-
-export const patchArtist = asyncWrapper(
-  async ({ params: {id}, body }: Request, res: Response) => {
-    const newData = await findAndUpdateArtist(id, body)
-
-    if (!newData) 
-      return res.status(500).json({
-        message: `NO_SONG_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
-
-    return res.status(201).json(newData)
-  }
-)
-
-export const deleteArtist = asyncWrapper(
+export const getOneSong = asyncWrapper(
   async ({ params: {id} }: Request, res: Response) => {
-    const data = await findAndDeleteArtist(id)
+    const data = await findOneSong(id)
+
+    if (!data)
+      return res.status(500).json({
+        message: `NO_SONG_WITH_ID_${id}`,
+        error: 'INTERNAL_SERVER_ERROR',
+        statusCode: 500
+      })
+
+    return res.status(200).json(data)
+  }
+)
+
+export const postSong = asyncWrapper(
+  async ({ body }: Request, res: Response) => {
+    const data = await createSong(body)
+    return res.status(201).json(data)
+  }
+)
+
+export const patchSong = asyncWrapper(
+  async ({ params: {id}, body}: Request, res: Response) => {
+    const newData = await findAndUpdateSong(id, body)
+    
+    if (!newData)
+      return res.status(500).json({
+        message: `NO_SONG_WITH_ID_${id}`,
+        error: 'INTERNAL_SERVER_ERROR',
+        statusCode: 500
+      })
+
+    return res.status(201).json(newData)
+  }
+)
+
+export const deleteSong = asyncWrapper(
+  async ({ params: {id} }: Request, res: Response) => {
+    const data = await findAndDeleteSong(id)
 
     if (!data)
       return res.status(500).json({

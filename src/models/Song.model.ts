@@ -22,7 +22,7 @@ export const SongSchema = new Schema<Song>({
     type: String,
     required: [true, 'MUST_PROVIDE_RELEASE']
   },
-  time: {
+  duration: {
     minutes: {
       type: Number,
       required: [true, 'MUST_PROVIDE_MINUTES']
