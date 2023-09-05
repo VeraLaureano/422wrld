@@ -47,10 +47,12 @@ const ArtistSchema = new Schema<Artist>({
     twitter: String,
     facebook: String
   },
-  albums: [],
-  songs: {
+  albums: [{
+    type: Schema.Types.ObjectId, ref: 'Album'
+  }],
+  tracks: [{
     type: Schema.Types.ObjectId, ref: 'Song'
-  },
+  }],
   awards: [{
     date: String,
     name: String,

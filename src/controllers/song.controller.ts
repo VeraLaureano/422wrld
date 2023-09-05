@@ -61,7 +61,7 @@ export const deleteSong = asyncWrapper(
     return res.status(204).json({
       message: 'DELETE_SUCCESS',
       data: null,
-      statusCode: 500
+      statusCode: 204
     })
   }
 )

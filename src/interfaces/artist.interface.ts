@@ -1,3 +1,4 @@
+import { Album } from './album.interface'
 import { Song } from './song.interface'
 
 interface Platforms {
@@ -36,7 +37,7 @@ export interface Artist {
   genre: string;
   listen: Platforms;
   profiles: Profile;
-  albums: [];
-  songs: Song;
+  albums: Array<Album>;
+  tracks: Array<Song>;
   awards: Array<Award>
 }
