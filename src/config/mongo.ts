@@ -1,10 +1,10 @@
 import { connect } from 'mongoose'
-import { info, error } from '../utils/loggers'
+import { logInfo, logError } from '../utils/loggers'
 
 const connectDB: (a: string) => void = (url: string) => {
   connect(url)
-    .then(() => info('Connected to the DB...'))
-    .catch((err) => error(err))
+    .then(() => logInfo('Connected to the DB...'))
+    .catch((err) => logError(err))
 }
 
 export default connectDB

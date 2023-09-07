@@ -1,12 +1,12 @@
 import { NODE_ENV } from '../config/env'
 
-export const info = (...params: [string]) => {
+export const logInfo = (...params: [string]) => {
   if (NODE_ENV === 'development') {
     console.log(...params)
   }
 }
 
-export const error = (...params: [unknown]) => {
+export const logError = (...params: [unknown]) => {
   if (NODE_ENV === 'development') {
     console.error(...params)
   }
