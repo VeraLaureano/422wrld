@@ -7,7 +7,7 @@ import { songRouter } from './routes/song.route'
 import { VERSION } from './config/env'
 import { userRouter } from './routes/user.route'
 import cookieParser from 'cookie-parser'
-import { restrictTologgedInUserOnly } from './middlewares/auth'
+// import { checkAuth, restrictTologgedInUserOnly } from './middlewares/auth'
 
 const app = express()
 
@@ -23,7 +23,7 @@ app.get('/', (_req: Request, res: Response) => {
 })
 app.use(`/api/${VERSION}/user`, userRouter)
 // app.use(`/api/${VERSION}/profile`, restrictTologgedInUserOnly,profileRouter)
-app.use(`/api/${VERSION}/artists`, restrictTologgedInUserOnly, artistsRouter)
+app.use(`/api/${VERSION}/artists`, artistsRouter)
 app.use(`/api/${VERSION}/albums`, albumRouter)
 app.use(`/api/${VERSION}/songs`, songRouter)
 

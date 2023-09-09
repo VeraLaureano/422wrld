@@ -10,7 +10,14 @@ export const restrictTologgedInUserOnly = async ({ cookies: {uid} } : Request, r
 
   if (!user)
     return res.redirect('/login')
-  
+
+  next()
+}
+
+export const checkAuth = async (req: Request, _res: Response, next: NextFunction) => {
+  const { cookies: {uid} } = req
+  const user = getUser(uid)
+
   logInfo(user)
 
   next()

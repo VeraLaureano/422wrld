@@ -6,7 +6,12 @@ export const createUser = async (data: User) => {
   return responseUser
 }
 
-export const findOneUser = async (email: string, password: string) => {
-  const responseUser = await UserModel.findOne({ email: email, password: password })
+export const findOneUser = async (email: string) => {
+  const responseUser = await UserModel.findOne({ email: email })
   return responseUser
+}
+
+export const findAllUsers = async () => {
+  const responseUsers = await UserModel.find({})
+  return responseUsers
 }
