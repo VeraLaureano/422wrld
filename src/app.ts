@@ -1,3 +1,4 @@
+// Import modules
 import express, { Request, Response } from 'express'
 import cors from 'cors'
 import { notFound } from './middlewares/notFound'
@@ -7,27 +8,27 @@ import { songRouter } from './routes/song.route'
 import { VERSION } from './config/env'
 import { userRouter } from './routes/user.route'
 import cookieParser from 'cookie-parser'
-// import { checkAuth, restrictTologgedInUserOnly } from './middlewares/auth'
 
+// Create an Express application
 const app = express()
 
-// MIDDLEWARES
-app.use(express.json())
-app.use(cors())
-app.use(cookieParser())
+// Set up middleware functions
+app.use(express.json()) // Parse JSON request bodies
+app.use(cors()) // Enable CORS
+app.use(cookieParser()) // Parse cookie headers
 
-// ROUTING
+// Set up routing
 app.get('/', (_req: Request, res: Response) => {
-  // home
+  // Home page
   res.send('<h1>Welcome!</h1>')
 })
-app.use(`/api/${VERSION}/user`, userRouter)
-// app.use(`/api/${VERSION}/profile`, restrictTologgedInUserOnly,profileRouter)
-app.use(`/api/${VERSION}/artists`, artistsRouter)
-app.use(`/api/${VERSION}/albums`, albumRouter)
-app.use(`/api/${VERSION}/songs`, songRouter)
+app.use(`/api/${VERSION}/user`, userRouter) // User routes
+app.use(`/api/${VERSION}/artists`, artistsRouter) // Artist routes
+app.use(`/api/${VERSION}/albums`, albumRouter) // Album routes
+app.use(`/api/${VERSION}/songs`, songRouter) // Song routes
 
-// 404
+// Set up 404 error handler
 app.use(notFound)
 
+// Export the Express application
 export default app
