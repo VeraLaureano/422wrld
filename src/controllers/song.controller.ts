@@ -2,6 +2,10 @@ import { Request, Response } from 'express'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { createSong, findAllSongs, findAndDeleteSong, findAndUpdateSong, findOneSong } from '../services/song.service'
 
+/**
+ * @method [GET]
+ * @description search all songs
+ */
 export const getAllSongs = asyncWrapper(
   async (_req: Request, res: Response) => {
     const data = await findAllSongs()
@@ -10,6 +14,10 @@ export const getAllSongs = asyncWrapper(
   }
 )
 
+/**
+ * @method [GET]
+ * @description search a song with id in params
+ */
 export const getOneSong = asyncWrapper(
   async ({ params: {id} }: Request, res: Response) => {
     const data = await findOneSong(id)
@@ -25,6 +33,10 @@ export const getOneSong = asyncWrapper(
   }
 )
 
+/**
+ * @method [POST]
+ * @description post a new song in the db
+ */
 export const postSong = asyncWrapper(
   async ({ body }: Request, res: Response) => {
     const data = await createSong(body)
@@ -32,6 +44,10 @@ export const postSong = asyncWrapper(
   }
 )
 
+/**
+ * @method [PATCH]
+ * @description update the found artist
+ */
 export const patchSong = asyncWrapper(
   async ({ params: {id}, body}: Request, res: Response) => {
     const newData = await findAndUpdateSong(id, body)
@@ -47,6 +63,10 @@ export const patchSong = asyncWrapper(
   }
 )
 
+/**
+ * @method [DELETE]
+ * @description delete the soung artist
+ */
 export const deleteSong = asyncWrapper(
   async ({ params: {id} }: Request, res: Response) => {
     const data = await findAndDeleteSong(id)

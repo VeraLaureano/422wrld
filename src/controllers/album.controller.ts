@@ -2,6 +2,10 @@ import { Request, Response } from 'express'
 import { createAlbum, findAllAlbums, findAndDeleteAlbum, findAndUpdateAlbum, findOneAlbum } from '../services/album.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 
+/**
+ * @method [GET]
+ * @description search all albums
+ */
 export const getAllAlbums = asyncWrapper(
   async (_req: Request, res: Response) => {
     const data = await findAllAlbums()
@@ -9,6 +13,10 @@ export const getAllAlbums = asyncWrapper(
   }
 )
 
+/**
+ * @method [GET]
+ * @description search a album with id in params
+ */
 export const getOneAlbum = asyncWrapper(
   async ({params: {id}}: Request, res: Response) => {
     const data = await findOneAlbum(id)
@@ -24,6 +32,10 @@ export const getOneAlbum = asyncWrapper(
   }
 )
 
+/**
+ * @method [POST]
+ * @description post a new album in the db
+ */
 export const postAlbum = asyncWrapper(
   async ({body}: Request, res: Response) => {
     const newData = await createAlbum(body)
@@ -31,6 +43,10 @@ export const postAlbum = asyncWrapper(
   }
 )
 
+/**
+ * @method [PATCH]
+ * @description update the found album
+ */
 export const patchAlbum = asyncWrapper(
   async ({params: {id}, body}: Request, res: Response) => {
     const data = await findAndUpdateAlbum(id, body)
@@ -46,6 +62,10 @@ export const patchAlbum = asyncWrapper(
   }
 )
 
+/**
+ * @method [DELETE]
+ * @description delete the soung album
+ */
 export const deleteAlbum = asyncWrapper(
   async ({params: {id}}: Request, res: Response) => {
     const data = await findAndDeleteAlbum(id)

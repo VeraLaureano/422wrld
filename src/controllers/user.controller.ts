@@ -19,11 +19,15 @@ export const postUserSignup = asyncWrapper(
     const data = await createUser({
       name,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      isAuthenticated: false
     })
 
-    // Send a JSON response with the new user data and a status code of 201
-    return res.status(201).json(data)
+    console.log(data)
+    
+
+    // Redirect to /login route
+    return res.redirect('/login')
   }
 )
 
@@ -55,16 +59,19 @@ export const postUserLogin = asyncWrapper(
         statusCode: 500
       })
 
+    data.isAuthenticated = true
+
+    console.log(data)
+
     // Generate a new session ID and store the user data in a Map
     const sessionID = uuidv4()
     setUser(sessionID, data)
 
     // Set a cookie with the session ID and return the user data
     res.cookie('uid', sessionID)
-    return res.status(200).json(data)
+    return res.redirect('/')
   }
 )
-
 
 // Define a function to retrieve all users from a database
 export const getAllUsers = asyncWrapper(
