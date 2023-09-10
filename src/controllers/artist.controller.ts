@@ -1,13 +1,14 @@
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import { findAllArtists, findOneArtist, createArtist, findAndDeleteArtist, findAndUpdateArtist } from '../services/artist.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
+import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 
 /**
  * @method [GET]
  * @description search all artists
  */
 export const getAllArtists = asyncWrapper(
-  async (_req: Request, res: Response) => {
+  async (_req: AuthenticatedRequest, res: Response) => {
     const data = await findAllArtists()
     return res.status(200).json(data)
   }
@@ -19,7 +20,7 @@ export const getAllArtists = asyncWrapper(
  */
 // This function retrieves an artist's data from the database.
 export const getOneArtist = asyncWrapper(
-  async ({params: {id}}: Request, res: Response) => {
+  async ({params: {id}}: AuthenticatedRequest, res: Response) => {
     // Find the artist with the given id.
     const data = await findOneArtist(id)
 
@@ -43,7 +44,7 @@ export const getOneArtist = asyncWrapper(
  */
 // This function creates a new artist in the database.
 export const postArtist = asyncWrapper (
-  async ({body}: Request, res: Response) => {
+  async ({body}: AuthenticatedRequest, res: Response) => {
     // Create a new artist with the given data.
     const newData = await createArtist(body)
 
@@ -59,7 +60,7 @@ export const postArtist = asyncWrapper (
  */
 // This function updates an artist's data in the database.
 export const patchArtist = asyncWrapper(
-  async ({ params: {id}, body }: Request, res: Response) => {
+  async ({ params: {id}, body }: AuthenticatedRequest, res: Response) => {
     // Find and update the artist with the given id.
     const newData = await findAndUpdateArtist(id, body)
 
@@ -81,7 +82,7 @@ export const patchArtist = asyncWrapper(
  */
 // This function deletes an artist from the database.
 export const deleteArtist = asyncWrapper(
-  async ({ params: {id} }: Request, res: Response) => {
+  async ({ params: {id} }: AuthenticatedRequest, res: Response) => {
     // Find and delete the artist with the given id.
     const data = await findAndDeleteArtist(id)
 

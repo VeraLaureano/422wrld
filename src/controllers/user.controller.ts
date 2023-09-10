@@ -1,14 +1,15 @@
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import { createUser, findAllUsers, findOneUser } from '../services/user.service'
 import { hash } from 'bcrypt'
 import { v4 as uuidv4 } from 'uuid'
 import { setUser } from '../services/auth.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { compareHashes } from '../utils/compareHashes'
+import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 
 // Define a function to handle user signups
 export const postUserSignup = asyncWrapper(
-  async ({ body: {name, email, password} }: Request, res: Response) => {
+  async ({ body: {name, email, password} }: AuthenticatedRequest, res: Response) => {
     // Set the number of salt rounds for bcrypt
     const saltRounds = 10
 
@@ -33,7 +34,7 @@ export const postUserSignup = asyncWrapper(
 
 // Define a function to handle user logins
 export const postUserLogin = asyncWrapper(
-  async ({body}: Request, res: Response) => {
+  async ({body}: AuthenticatedRequest, res: Response) => {
     // Get the email and password from the request body
     const { email, password } = body
 
@@ -75,7 +76,7 @@ export const postUserLogin = asyncWrapper(
 
 // Define a function to retrieve all users from a database
 export const getAllUsers = asyncWrapper(
-  async (_req: Request, res: Response) => {
+  async (_req: AuthenticatedRequest, res: Response) => {
     // Find all users in the database
     const data = await findAllUsers()
 

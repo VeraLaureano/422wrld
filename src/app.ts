@@ -8,9 +8,14 @@ import { songRouter } from './routes/song.route'
 import { VERSION } from './config/env'
 import { userRouter } from './routes/user.route'
 import cookieParser from 'cookie-parser'
+import { resolve } from 'path'
 
 // Create an Express application
 const app = express()
+
+// Set view engine
+app.set('view engine', 'ejs')
+app.set('views', resolve('./views'))
 
 // Set up middleware functions
 app.use(express.json()) // Parse JSON request bodies

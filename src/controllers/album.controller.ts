@@ -1,13 +1,14 @@
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import { createAlbum, findAllAlbums, findAndDeleteAlbum, findAndUpdateAlbum, findOneAlbum } from '../services/album.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
+import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 
 /**
  * @method [GET]
  * @description search all albums
  */
 export const getAllAlbums = asyncWrapper(
-  async (_req: Request, res: Response) => {
+  async (_req: AuthenticatedRequest, res: Response) => {
     const data = await findAllAlbums()
     res.status(200).json(data)
   }
@@ -18,7 +19,7 @@ export const getAllAlbums = asyncWrapper(
  * @description search a album with id in params
  */
 export const getOneAlbum = asyncWrapper(
-  async ({params: {id}}: Request, res: Response) => {
+  async ({params: {id}}: AuthenticatedRequest, res: Response) => {
     const data = await findOneAlbum(id)
 
     if (!data)
@@ -37,7 +38,7 @@ export const getOneAlbum = asyncWrapper(
  * @description post a new album in the db
  */
 export const postAlbum = asyncWrapper(
-  async ({body}: Request, res: Response) => {
+  async ({body}: AuthenticatedRequest, res: Response) => {
     const newData = await createAlbum(body)
     return res.status(201).json(newData)
   }
@@ -48,7 +49,7 @@ export const postAlbum = asyncWrapper(
  * @description update the found album
  */
 export const patchAlbum = asyncWrapper(
-  async ({params: {id}, body}: Request, res: Response) => {
+  async ({params: {id}, body}: AuthenticatedRequest, res: Response) => {
     const data = await findAndUpdateAlbum(id, body)
 
     if (!data)
@@ -67,7 +68,7 @@ export const patchAlbum = asyncWrapper(
  * @description delete the soung album
  */
 export const deleteAlbum = asyncWrapper(
-  async ({params: {id}}: Request, res: Response) => {
+  async ({params: {id}}: AuthenticatedRequest, res: Response) => {
     const data = await findAndDeleteAlbum(id)
 
     if (!data)

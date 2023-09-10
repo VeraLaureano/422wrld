@@ -1,13 +1,14 @@
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { createSong, findAllSongs, findAndDeleteSong, findAndUpdateSong, findOneSong } from '../services/song.service'
+import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 
 /**
  * @method [GET]
  * @description search all songs
  */
 export const getAllSongs = asyncWrapper(
-  async (_req: Request, res: Response) => {
+  async (_req: AuthenticatedRequest, res: Response) => {
     const data = await findAllSongs()
 
     return res.status(200).json(data)
@@ -19,7 +20,7 @@ export const getAllSongs = asyncWrapper(
  * @description search a song with id in params
  */
 export const getOneSong = asyncWrapper(
-  async ({ params: {id} }: Request, res: Response) => {
+  async ({ params: {id} }: AuthenticatedRequest, res: Response) => {
     const data = await findOneSong(id)
 
     if (!data)
@@ -38,7 +39,7 @@ export const getOneSong = asyncWrapper(
  * @description post a new song in the db
  */
 export const postSong = asyncWrapper(
-  async ({ body }: Request, res: Response) => {
+  async ({ body }: AuthenticatedRequest, res: Response) => {
     const data = await createSong(body)
     return res.status(201).json(data)
   }
@@ -49,7 +50,7 @@ export const postSong = asyncWrapper(
  * @description update the found artist
  */
 export const patchSong = asyncWrapper(
-  async ({ params: {id}, body}: Request, res: Response) => {
+  async ({ params: {id}, body}: AuthenticatedRequest, res: Response) => {
     const newData = await findAndUpdateSong(id, body)
     
     if (!newData)
@@ -68,7 +69,7 @@ export const patchSong = asyncWrapper(
  * @description delete the soung artist
  */
 export const deleteSong = asyncWrapper(
-  async ({ params: {id} }: Request, res: Response) => {
+  async ({ params: {id} }: AuthenticatedRequest, res: Response) => {
     const data = await findAndDeleteSong(id)
 
     if (!data)

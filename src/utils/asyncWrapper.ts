@@ -1,11 +1,12 @@
 // Import modules
-import { NextFunction, Request, Response } from 'express'
+import { NextFunction, Response } from 'express'
+import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 
 // Define a function to wrap an asynchronous Express route handler function
 export const asyncWrapper = (
-  callback: (req: Request, res: Response, next?: NextFunction) => void
+  callback: (req: AuthenticatedRequest, res: Response, next?: NextFunction) => void
 ) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
+  return async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
       // Call the original callback function
       await callback(req, res, next)
