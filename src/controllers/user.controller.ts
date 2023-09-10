@@ -6,6 +6,7 @@ import { setUser } from '../services/auth.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { compareHashes } from '../utils/compareHashes'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
+import { VERSION } from '../config/env'
 
 // Define a function to handle user signups
 export const postUserSignup = asyncWrapper(
@@ -17,18 +18,15 @@ export const postUserSignup = asyncWrapper(
     const hashedPassword = await hash(password, saltRounds)
 
     // Create a new user with the name, email, and hashed password
-    const data = await createUser({
+    await createUser({
       name,
       email,
       password: hashedPassword,
       isAuthenticated: false
-    })
-
-    console.log(data)
-    
+    })  
 
     // Redirect to /login route
-    return res.redirect('/login')
+    return res.render('login', { method: 'POST', VERSION: VERSION })
   }
 )
 
@@ -62,8 +60,6 @@ export const postUserLogin = asyncWrapper(
 
     data.isAuthenticated = true
 
-    console.log(data)
-
     // Generate a new session ID and store the user data in a Map
     const sessionID = uuidv4()
     setUser(sessionID, data)
@@ -84,3 +80,11 @@ export const getAllUsers = asyncWrapper(
     return res.status(200).json(data)
   }
 )
+
+export const getSignup = (_req: AuthenticatedRequest, res: Response) => {
+  return res.render('signup', { VERSION: VERSION })
+}
+
+export const getLogin = (_req: AuthenticatedRequest, res: Response) => {
+  return res.render('login', { VERSION: VERSION })
+}

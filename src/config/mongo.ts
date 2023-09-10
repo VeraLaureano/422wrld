@@ -1,6 +1,9 @@
 // Import modules
-import { connect } from 'mongoose'
+import { connect, set } from 'mongoose'
 import { logInfo, logError } from '../utils/loggers'
+
+// Set strict mode in querys
+set('strictQuery', true)
 
 // Define a function to connect to a MongoDB database
 const connectDB: (a: string) => void = (url: string) => {
