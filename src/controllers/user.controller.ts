@@ -7,12 +7,22 @@ import { asyncWrapper } from '../utils/asyncWrapper'
 import { compareHashes } from '../utils/compareHashes'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import { VERSION } from '../config/env'
+import routes from '../config/routes'
 
 // Define a function to handle user signups
 export const postUserSignup = asyncWrapper(
-  async ({ body: {name, email, password} }: AuthenticatedRequest, res: Response) => {
+  async ({ body: {name, email, password, confirmPassword} }: AuthenticatedRequest, res: Response) => {
     // Set the number of salt rounds for bcrypt
     const saltRounds = 10
+
+    // Check if the passwords match
+    if (password !== confirmPassword)
+      return res.status(400).json({
+        message: 'PASSWORD_DO_NOT_MATCH',
+        error: 'BAD_REQUEST',
+        statusCode: 400
+      })
+
 
     // Hash the user's password using bcrypt
     const hashedPassword = await hash(password, saltRounds)
@@ -26,7 +36,7 @@ export const postUserSignup = asyncWrapper(
     })  
 
     // Redirect to /login route
-    return res.render('login', { method: 'POST', VERSION: VERSION })
+    return res.redirect(`${routes.user}/login`)
   }
 )
 
