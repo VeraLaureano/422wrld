@@ -39,9 +39,9 @@ export const SongSchema = new Schema<Song>({
   cover: {
     type: String,
     required: [true, 'MUST_PROVIDE_COVER_URL']
-  },
-  rating: Number
-})
+  }
+},
+{timestamps: false})
 
 const SongModel = model('Song', SongSchema)
 export default SongModel

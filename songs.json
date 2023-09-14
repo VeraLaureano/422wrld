@@ -1,0 +1,738 @@
+[
+    {
+      "duration": {
+        "minutes": 0,
+        "seconds": 29
+      },
+      "_id": "64fe55246f36830eef729214",
+      "title": "Bienvenida",
+      "artist": [
+        "YSY A"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/5sv0imGwJM2zyLkLTCVhXh?si=a3a8ea10c92142df",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 44
+      },
+      "_id": "64fe55ad6f36830eef729218",
+      "title": "Hidro",
+      "artist": [
+        "YSY A"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/2as7AQfl3uoUbNazMXDKFC?si=6a673753ba414cc8",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 4,
+        "seconds": 16
+      },
+      "_id": "64fe56546f36830eef72921b",
+      "title": "Vuelta a la Luna",
+      "artist": [
+        "YSY A",
+        "Duki"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/0YmUcYhnKk3Gvh9ufydK0b?si=de353d9f868b474d",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 17
+      },
+      "_id": "64fe56986f36830eef72921d",
+      "title": "El Amanecer",
+      "artist": [
+        "YSY A"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/48H3BsuIXKMYRTuFtxkRhh?si=25ae783bdb7b4a51",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 17
+      },
+      "_id": "64fe56c76f36830eef72921f",
+      "title": "Enamorada del Diablo",
+      "artist": [
+        "YSY A",
+        "Neo Pistea"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/4HROhSVnkWl1o6DGk1Pb80?si=ef6fa011c5c54914",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 46
+      },
+      "_id": "64fe570a6f36830eef729221",
+      "title": "Linaje",
+      "artist": [
+        "YSY A"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/2aJngxwtH6SfODBfUTug6D?si=fb6d314e99674df2",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 34
+      },
+      "_id": "64fe57836f36830eef729225",
+      "title": "Tragos Fuertes",
+      "artist": [
+        "YSY A",
+        "Obie Wanshot"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/4ffqSTFwPUdDLLfLa8OuC6?si=6e9a60310cad4272",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 6
+      },
+      "_id": "64fe57ea6f36830eef729227",
+      "title": "Muévelo",
+      "artist": [
+        "YSY A",
+        "Marcianos Crew"
+      ],
+      "producer": [
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/2UJxBdSItReWTTQUvUhVLv?si=10824a7481974876",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 19
+      },
+      "_id": "64fe58596f36830eef729229",
+      "title": "No Sé",
+      "artist": [
+        "YSY A",
+        "Duki"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/2Ec9d0klODFgH4bxv2C7pR?si=2fb754534ada46ec",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 36
+      },
+      "_id": "64fe587b6f36830eef72922b",
+      "title": "Tamo Loco",
+      "artist": [
+        "YSY A"
+      ],
+      "producer": [
+        "Yesan",
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/3EsXS6UlpHtJvopnLTbsiT?si=ac6194c4e2c042bd",
+      "cover": "https://i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 13
+      },
+      "_id": "64ff083f4697e670db308314",
+      "title": "Te Traje Flores",
+      "artist": [
+        "Duki"
+      ],
+      "producer": [
+        "NEUEN"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2018-11-11",
+      "spotify": "https://open.spotify.com/intl-es/track/6OWwrGLVeyTgVqJK5j0rT9?si=47240da4036c49a6",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 40
+      },
+      "_id": "64ff09054697e670db308316",
+      "title": "It's a Vibe",
+      "artist": [
+        "Duki",
+        "C. Tangana",
+        "Khea"
+      ],
+      "producer": [
+        "Sky Rompiendo"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-11-01",
+      "spotify": "https://open.spotify.com/intl-es/track/6HvD8JhIe9Mq6gyql32rYb?si=793505c452854300",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 59
+      },
+      "_id": "6502002ac53fcd1e07cbc42f",
+      "title": "Hitboy",
+      "artist": [
+        "Duki",
+        "Khea"
+      ],
+      "producer": [
+        "Asan"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-06-05",
+      "spotify": "https://open.spotify.com/intl-es/track/51dqvo5QYezL3rjL6qjksA?si=b6c21325c4cd4839",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 42
+      },
+      "_id": "650200a7c53fcd1e07cbc432",
+      "title": "Señorita",
+      "artist": [
+        "Duki"
+      ],
+      "producer": [
+        "NEUEN"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-11-01",
+      "spotify": "https://open.spotify.com/intl-es/track/4znBsOXb9COwElnqcvPQQs?si=6b00ad8e1ef54ac7",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 17
+      },
+      "_id": "6502011ac53fcd1e07cbc436",
+      "title": "Me Gusta lo Simple",
+      "artist": [
+        "Duki",
+        "Aleman"
+      ],
+      "producer": [
+        "NEUEN",
+        "Fntxy"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-11-01",
+      "spotify": "https://open.spotify.com/intl-es/track/3VJSv1RoYiCY4ECGyDO7ry?si=88386849b1f744fc",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 39
+      },
+      "_id": "65020157c53fcd1e07cbc438",
+      "title": "Perdon",
+      "artist": [
+        "Duki"
+      ],
+      "producer": [
+        "NEUEN",
+        "El Sidechain"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-11-01",
+      "spotify": "https://open.spotify.com/intl-es/track/6JFR03uLMNMmZ3vgiXwskq?si=2f891eca36674ac6",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 23
+      },
+      "_id": "650201afc53fcd1e07cbc43a",
+      "title": "A Punta de Espada",
+      "artist": [
+        "Duki",
+        "YSY A"
+      ],
+      "producer": [
+        "NEUEN"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-10-17",
+      "spotify": "https://open.spotify.com/intl-es/track/74MujHggasHq5FMkTKsNkA?si=89d2f86e30d34422",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 31
+      },
+      "_id": "65020276c53fcd1e07cbc43c",
+      "title": "La Jefatura",
+      "artist": [
+        "Duki",
+        "Marcianos Crew",
+        "Lucho SSJ"
+      ],
+      "producer": [
+        "NEUEN"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-11-01",
+      "spotify": "https://open.spotify.com/intl-es/track/2lllz0GoFtRdHMaqGlqcoL?si=896cd0f94e784c4a",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 4,
+        "seconds": 41
+      },
+      "_id": "650202b1c53fcd1e07cbc43e",
+      "title": "One Million Dolar Baby",
+      "artist": [
+        "Duki",
+        "Sfera Ebbasta",
+        "Eladio Carrión"
+      ],
+      "producer": [
+        "NEUEN"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-11-01",
+      "spotify": "https://open.spotify.com/intl-es/track/2u5yscz12pZF9Z3ls3BshU?si=8a7b07e7b0d548c4",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 44
+      },
+      "_id": "650202fdc53fcd1e07cbc440",
+      "title": "One Million Dolar Baby",
+      "artist": [
+        "Duki"
+      ],
+      "producer": [
+        "Asan"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2019-08-07",
+      "spotify": "https://open.spotify.com/intl-es/track/57kdZIOAaolxAjB67d2yU3?si=90841b041c474003",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 20
+      },
+      "_id": "65020714c53fcd1e07cbc44c",
+      "title": "Gracias a Dios",
+      "artist": [
+        "Neo Pistea"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/0rUVnoIrKJkhl4vrNRHT5w?si=5f0a5523d2d44ec8",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 4,
+        "seconds": 27
+      },
+      "_id": "6502075ec53fcd1e07cbc44e",
+      "title": "Tengo",
+      "artist": [
+        "Neo Pistea",
+        "Kaydy Cain",
+        "C.R.O"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/62A6GVvjONTvY7v4HRpTxP?si=f9c9ef171e59455a",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 4,
+        "seconds": 33
+      },
+      "_id": "6502079bc53fcd1e07cbc450",
+      "title": "KELOKE",
+      "artist": [
+        "Neo Pistea",
+        "De La Ghetto",
+        "Fuego"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/2hBMHTRdjyO0LwfGy53OaU?si=200ae9642207441c",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 51
+      },
+      "_id": "65020b93c53fcd1e07cbc452",
+      "title": "TONYTHEKID",
+      "artist": [
+        "Neo Pistea"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/0ccrr003grgY0CwolxfqiE?si=5344d645da44410d",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 4,
+        "seconds": 48
+      },
+      "_id": "65020bf1c53fcd1e07cbc454",
+      "title": "VENENO",
+      "artist": [
+        "Neo Pistea",
+        "Quimico Ultra Mega",
+        "Pablo Chill-E",
+        "Neutro Shorty"
+      ],
+      "producer": [
+        "Club Hats"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/5NSAam2qT7PkPU8rowiz79?si=d9cc9f4c896b404e",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 5,
+        "seconds": 2
+      },
+      "_id": "65020c2cc53fcd1e07cbc456",
+      "title": "TRAPPIST-1",
+      "artist": [
+        "Neo Pistea",
+        "Duki"
+      ],
+      "producer": [
+        "0-600"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/3tyEOol8a0fP78HpdJ3mkS?si=ee5a441428064ef6",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 4
+      },
+      "_id": "65020c82c53fcd1e07cbc458",
+      "title": "DAME DINERO",
+      "artist": [
+        "Neo Pistea",
+        "YSY A"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/5K5uciQSYbaVMFOGCqn9mZ?si=f221b99e0517480e",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 42
+      },
+      "_id": "65020cbcc53fcd1e07cbc45a",
+      "title": "AGUITA",
+      "artist": [
+        "Neo Pistea"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/3M0HhkaIZj7sLYillVMzN4?si=01ff584fdfa04aa0",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 4,
+        "seconds": 5
+      },
+      "_id": "65020cedc53fcd1e07cbc45c",
+      "title": "TU CINTURA",
+      "artist": [
+        "Neo Pistea",
+        "Cazzu",
+        "Rei"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/35rGCxanzxooL6R32BuMu6?si=fd2f483dcb894f8e",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 53
+      },
+      "_id": "65020d68c53fcd1e07cbc45e",
+      "title": "DISELO",
+      "artist": [
+        "Neo Pistea",
+        "Omar Montes",
+        "Quan The Young"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/52aDb4HayitjErSh61kXUC?si=7cb6da37a5884fcb",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 3,
+        "seconds": 51
+      },
+      "_id": "65020da0c53fcd1e07cbc460",
+      "title": "TNT",
+      "artist": [
+        "Neo Pistea",
+        "Obie Wanshot"
+      ],
+      "producer": [
+        "Oniria"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/4ld82JEAVNp87NWWslgPJc?si=3cdde7496c2346f4",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 5,
+        "seconds": 20
+      },
+      "_id": "65020de1c53fcd1e07cbc462",
+      "title": "VOLVER",
+      "artist": [
+        "Neo Pistea",
+        "Dante Spinetta",
+        "Bhavi",
+        "Polima Westcoast"
+      ],
+      "producer": [
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/7CXteQZYNhBPkq6kdKLr3r?si=c6b0d9608e274629",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    },
+    {
+      "duration": {
+        "minutes": 2,
+        "seconds": 57
+      },
+      "_id": "65020e14c53fcd1e07cbc464",
+      "title": "PUNKDEMIA",
+      "artist": [
+        "Neo Pistea"
+      ],
+      "producer": [
+        "Yesan",
+        "Lean Coca"
+      ],
+      "genre": [
+        "Trap"
+      ],
+      "release": "2021-04-14",
+      "spotify": "https://open.spotify.com/intl-es/track/4RAA9KLFiSsqph6Byv1iQc?si=4f0bf4ec2c4e4e68",
+      "cover": "https://i.scdn.co/image/ab67616d00001e02a6372d2fb63213712b7f6875",
+      "__v": 0
+    }
+  ]

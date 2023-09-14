@@ -9,7 +9,7 @@ import { VERSION } from './config/env'
 import { userRouter } from './routes/user.route'
 import cookieParser from 'cookie-parser'
 import { join } from 'path'
-import { checkAuth, restrictTologgedInUserOnly } from './middlewares/auth'
+import { checkAuth } from './middlewares/auth'
 import { AuthenticatedRequest } from './interfaces/authRequest.interface'
 
 // Create an Express application
@@ -26,15 +26,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser()) // Parse cookie headers
 
 // Set up routing
-app.get('/', checkAuth, (req: AuthenticatedRequest, res: Response) => {
+app.get('/', checkAuth, (_req: AuthenticatedRequest, res: Response) => {
   // Home page
-  if (!req.user)
-    return res.redirect('/login')
-
   return res.render('home')
 })
 app.use(`/api/${VERSION}/user`, userRouter) // User routes
-app.use(`/api/${VERSION}/artists`, restrictTologgedInUserOnly,artistsRouter) // Artist routes
+app.use(`/api/${VERSION}/artists`, artistsRouter) // Artist routes
 app.use(`/api/${VERSION}/albums`, albumRouter) // Album routes
 app.use(`/api/${VERSION}/songs`, songRouter) // Song routes
 

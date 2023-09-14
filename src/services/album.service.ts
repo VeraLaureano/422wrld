@@ -7,7 +7,8 @@ export const findAllAlbums = async () => {
 }
 
 export const findOneAlbum = async (albumID: string) => {
-  const responseAlbum = await AlbumModel.findById({_id: albumID})
+  const responseAlbum = await AlbumModel.findById({_id: albumID}).populate('tracks').exec()
+
   return responseAlbum
 }
 

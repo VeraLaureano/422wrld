@@ -8,5 +8,4 @@ export interface Album {
   releaseDate: Date;
   coverUrl: string;
   tracks: Array<Song>;
-  rating?: number;
 }

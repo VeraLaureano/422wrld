@@ -30,22 +30,20 @@ const ArtistSchema = new Schema<Artist>({
     type: String
   }, 
   genre:  {
-    type: String
+    type: [String]
   },
   listen:  {
     type: {
       spotify: String,
       ytbMusic: String,
+      amazonMusic: String,
       appleMusic: String
     }
   },
   profiles: {
-    threads: String,
-    tiktok: String,
     youtube: String,
     instagram: String,
-    twitter: String,
-    facebook: String
+    twitter: String
   },
   albums: [{
     type: Schema.Types.ObjectId, ref: 'Album'
@@ -54,11 +52,13 @@ const ArtistSchema = new Schema<Artist>({
     type: Schema.Types.ObjectId, ref: 'Song'
   }],
   awards: [{
-    date: String,
-    name: String,
-    description: String
+    year: Number,
+    category: String,
+    nomination: String,
+    result: String
   }]
-})
+},
+{timestamps: false})
 
 const ArtistModel = model('Artist', ArtistSchema)
 export default ArtistModel

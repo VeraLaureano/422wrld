@@ -16,7 +16,7 @@ export const findAllArtists = async () => {
  * @type Promise
  */
 export const findOneArtist = async (artistID: string) => {
-  const responseArtist = await ArtistModel.findOne({ _id: artistID })
+  const responseArtist = await ArtistModel.findOne({ _id: artistID }).populate('albums').exec()
   return responseArtist
 }
 

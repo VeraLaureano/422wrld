@@ -1,5 +1,5 @@
 import { Response } from 'express'
-import { createUser, findAllUsers, findOneUser } from '../services/user.service'
+import { createUser, findAllUsers, findOneUser, findAndDeleteUser } from '../services/user.service'
 import { hash } from 'bcrypt'
 import { v4 as uuidv4 } from 'uuid'
 import { setUser } from '../services/auth.service'
@@ -41,11 +41,7 @@ export const postUserLogin = asyncWrapper(
 
     // Return an error if the user does not exist
     if (!data) 
-      return res.status(500).json({
-        message: 'EMAIL_OR_PASSWORD_INCORRECT',
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.redirect('/')
 
     // Compare the password with the hashed password in the database
     const isCorrect: boolean = await compareHashes(password, data.password)
@@ -81,10 +77,29 @@ export const getAllUsers = asyncWrapper(
   }
 )
 
+export const deleteUser = asyncWrapper(
+  async ({ params: { id } }: AuthenticatedRequest, res: Response) => {
+    const data = await findAndDeleteUser(id)
+
+    if (!data)
+      return res.status(500).json({
+        message: `NO_USER_WITH_ID_${id}`,
+        error: 'INTERNAL_SERVER_ERROR',
+        statusCode: 500
+      })
+
+    return res.status(204).json({
+      message: 'DELETE_SUCCESS',
+      data: null,
+      statusCode: 204
+    })
+  }
+)
+
 export const getSignup = (_req: AuthenticatedRequest, res: Response) => {
-  return res.render('signup', { VERSION: VERSION })
+  return res.render('signup', { VERSION })
 }
 
 export const getLogin = (_req: AuthenticatedRequest, res: Response) => {
-  return res.render('login', { VERSION: VERSION })
+  return res.render('login', { VERSION })
 }

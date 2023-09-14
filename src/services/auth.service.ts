@@ -18,8 +18,3 @@ export const getUser = (id: string) => {
 export const hasUser = (id: string) => {
   return sessionIdToUserMap.has(id)
 }
-
-// Define a function to delete a user from the Map
-export const deleteUser = (id: string) => {
-  return sessionIdToUserMap.delete(id)
-}

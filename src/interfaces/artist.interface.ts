@@ -4,22 +4,21 @@ import { Song } from './song.interface'
 interface Platforms {
   spotify: string;
   ytbMusic: string;
+  amazonMusic: string;
   appleMusic: string;
 }
 
 interface Profile {
-  threads: string;
-  tiktok: string;
   youtube: string;
   instagram: string;
   twitter: string;
-  facebook: string;
 }
 
 interface Award {
-  date: string;
-  name: string;
-  description: string;
+  year: number;
+  category: string;
+  nomination: string;
+  result: string;
 }
 
 export interface Artist {
@@ -34,7 +33,7 @@ export interface Artist {
   };
   nationality: string;
   children: string;
-  genre: string;
+  genre: [string];
   listen: Platforms;
   profiles: Profile;
   albums: Array<Album>;

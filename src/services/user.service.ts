@@ -15,3 +15,8 @@ export const findAllUsers = async () => {
   const responseUsers = await UserModel.find({})
   return responseUsers
 }
+
+export const findAndDeleteUser =async (userID: string) => {
+  const responseUser = await UserModel.findOneAndDelete({ _id: userID })
+  return responseUser
+}

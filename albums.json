@@ -1,0 +1,59 @@
+[{
+    "_id": "64fe5d0ebd24f842a8c40bfd",
+    "title": "Antezana 247",
+    "artist": "YSY A",
+    "producers": [
+      "Yesan",
+      "Oniria"
+    ],
+    "genre": [
+      "Trap"
+    ],
+    "releaseDate": "2018-11-11T00:00:00.000Z",
+    "coverUrl": "//i.scdn.co/image/ab67616d00001e0269445bc08d1eb43cc33965c6",
+    "tracks": [
+      "64fe55246f36830eef729214",
+      "64fe55ad6f36830eef729218",
+      "64fe56546f36830eef72921b",
+      "64fe56986f36830eef72921d",
+      "64fe56c76f36830eef72921f",
+      "64fe570a6f36830eef729221",
+      "64fe57836f36830eef729225",
+      "64fe57ea6f36830eef729227",
+      "64fe58596f36830eef729229",
+      "64fe587b6f36830eef72922b"
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "64ff079a4697e670db30830f",
+    "title": "Súper Sangre Joven",
+    "artist": "Duki",
+    "producers": [
+      "NEUN",
+      "Sky Rompiendo",
+      "Asan",
+      "Fntxy",
+      "El Sidechain"
+    ],
+    "genre": [
+      "Trap",
+      "Trap Latino",
+      "Hip Hop"
+    ],
+    "releaseDate": "2019-11-01T00:00:00.000Z",
+    "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e1f10079298289dc8d1d42c0",
+    "tracks": [
+      "64ff083f4697e670db308314",
+      "64ff09054697e670db308316",
+      "6502002ac53fcd1e07cbc42f",
+      "650200a7c53fcd1e07cbc432",
+      "6502011ac53fcd1e07cbc436",
+      "65020157c53fcd1e07cbc438",
+      "650201afc53fcd1e07cbc43a",
+      "65020276c53fcd1e07cbc43c",
+      "650202b1c53fcd1e07cbc43e",
+      "650202fdc53fcd1e07cbc440"
+    ],
+    "__v": 0
+  }]

@@ -7,5 +7,4 @@ export interface Song {
   duration: { minutes: number; seconds: number };
   spotify: string;
   cover: string;
-  rating: number;
 }
