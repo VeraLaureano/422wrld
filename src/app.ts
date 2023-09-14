@@ -9,7 +9,7 @@ import { VERSION } from './config/env'
 import { userRouter } from './routes/user.route'
 import cookieParser from 'cookie-parser'
 import { join } from 'path'
-import { checkAuth } from './middlewares/auth'
+import { checkAuth, restrictTologgedInUserOnly } from './middlewares/auth'
 import { AuthenticatedRequest } from './interfaces/authRequest.interface'
 
 // Create an Express application
@@ -17,7 +17,7 @@ const app = express()
 
 // Set view engine
 app.set('view engine', 'ejs')
-app.set('views', join(__dirname, 'views'))
+app.set('views', join(__dirname, '../public/views'))
 
 // Set up middleware functions
 app.use(express.json()) // Parse JSON request bodies
@@ -31,9 +31,9 @@ app.get('/', checkAuth, (_req: AuthenticatedRequest, res: Response) => {
   return res.render('home')
 })
 app.use(`/api/${VERSION}/user`, userRouter) // User routes
-app.use(`/api/${VERSION}/artists`, artistsRouter) // Artist routes
-app.use(`/api/${VERSION}/albums`, albumRouter) // Album routes
-app.use(`/api/${VERSION}/songs`, songRouter) // Song routes
+app.use(`/api/${VERSION}/artists`, restrictTologgedInUserOnly, artistsRouter) // Artist routes
+app.use(`/api/${VERSION}/albums`, restrictTologgedInUserOnly, albumRouter) // Album routes
+app.use(`/api/${VERSION}/songs`, restrictTologgedInUserOnly,songRouter) // Song routes
 
 // Set up 404 error handler
 app.use(notFound)
