@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { deleteArtist, getAllArtists, getOneArtist, patchArtist, postArtist } from '../controllers/artist.controller'
+import { getAllArtists, getOneArtist } from '../controllers/artist.controller'
 
 const router = Router()
 
-router.route('/').get(getAllArtists).post(postArtist)
-router.route('/:id').get(getOneArtist).patch(patchArtist).delete(deleteArtist)
+router.route('/').get(getAllArtists)
+router.route('/:id').get(getOneArtist)
 
 export { router as artistsRouter }

@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { deleteAlbum, getAllAlbums, getOneAlbum, patchAlbum, postAlbum } from '../controllers/album.controller'
+import { getAllAlbums, getOneAlbum } from '../controllers/album.controller'
 
 const router = Router()
 
-router.route('/').get(getAllAlbums).post(postAlbum)
-router.route('/:id').get(getOneAlbum).patch(patchAlbum).delete(deleteAlbum)
+router.route('/').get(getAllAlbums)
+router.route('/:id').get(getOneAlbum)
 
 export { router as albumRouter }

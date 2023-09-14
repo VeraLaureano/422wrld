@@ -11,6 +11,8 @@ import cookieParser from 'cookie-parser'
 import { join } from 'path'
 import { checkAuth, restrictTologgedInUserOnly } from './middlewares/auth'
 import { AuthenticatedRequest } from './interfaces/authRequest.interface'
+import { adminRouter } from './routes/admin.route'
+import { restrictToAdminOnly } from './middlewares/admin'
 
 // Create an Express application
 const app = express()
@@ -31,6 +33,7 @@ app.get('/', checkAuth, (_req: AuthenticatedRequest, res: Response) => {
   return res.render('home')
 })
 app.use(`/api/${VERSION}/user`, userRouter) // User routes
+app.use(`/api/${VERSION}/admin`, restrictToAdminOnly, adminRouter) // Admin routes
 app.use(`/api/${VERSION}/artists`, restrictTologgedInUserOnly, artistsRouter) // Artist routes
 app.use(`/api/${VERSION}/albums`, restrictTologgedInUserOnly, albumRouter) // Album routes
 app.use(`/api/${VERSION}/songs`, restrictTologgedInUserOnly,songRouter) // Song routes
