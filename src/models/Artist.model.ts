@@ -3,34 +3,43 @@ import { Artist } from '../interfaces/artist.interface'
 
 const ArtistSchema = new Schema<Artist>({
   imageURL: {
-    type: String
+    type: String,
+    required: [true, 'MUST_PROVIDE_IMAGEURL']
   },
   pseudonym: {
-    type: String
+    type: String,
+    required: [true, 'MUST_PROVIDE_PSEUDONYM']
   },
   fullName: {
-    type: String
+    type: String,
+    required: [true, 'MUST_PROVIDE_FULLNAME']
   },
   born: {
-    type: String
+    type: String,
+    required: [true, 'MUST_PROVIDE_BORN']
   },
   biography: {
-    type: String
+    type: String,
+    required: [true, 'MUST_PROVIDE_BIOGRAPHY']
   }, 
   activity: {
     type: {
       from: Number,
       to: String
-    }
+    },
+    required: [true, 'MUST_PROVIDE_ACTIVITY']
   },
   nationality: {
-    type: String
+    type: String,
+    required: [true, 'MUST_PROVIDE_NATIONALITY']
   },
   children: {
-    type: String
+    type: String,
+    required: [true, 'MUST_PROVIDE_CHILDREN']
   }, 
   genre:  {
-    type: [String]
+    type: [String],
+    required: [true, 'MUST_PROVIDE_GENRE']
   },
   listen:  {
     type: {
@@ -38,25 +47,37 @@ const ArtistSchema = new Schema<Artist>({
       ytbMusic: String,
       amazonMusic: String,
       appleMusic: String
-    }
+    },
+    required: [true, 'MUST_PROVIDE_LISTEN_LINKS']
   },
   profiles: {
-    youtube: String,
-    instagram: String,
-    twitter: String
+    type: {
+      youtube: String,
+      instagram: String,
+      twitter: String
+    },
+    required: [true, 'MUST_PROVIDE_PROFILES_LINKS']
   },
-  albums: [{
-    type: Schema.Types.ObjectId, ref: 'Album'
-  }],
-  tracks: [{
-    type: Schema.Types.ObjectId, ref: 'Song'
-  }],
-  awards: [{
-    year: Number,
-    category: String,
-    nomination: String,
-    result: String
-  }]
+  albums: {
+    type: [{
+      type: Schema.Types.ObjectId, ref: 'Album'
+    }]
+  },
+  tracks: {
+    type: [{
+      type: Schema.Types.ObjectId, ref: 'Song'
+    }],
+    required: [true, 'MUST_PROVIDE_TRACKS']
+  },
+  awards: {
+    type: [{
+      year: Number,
+      category: String,
+      nomination: String,
+      result: String
+    }],
+    required: [true, 'MUST_PROVIDE_AWARDS']
+  }
 },
 {timestamps: false})
 

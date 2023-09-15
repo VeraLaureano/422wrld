@@ -5,7 +5,8 @@ const routes = {
   admin: `/api/${VERSION}/admin`,
   artists: `/api/${VERSION}/artists`,
   albums: `/api/${VERSION}/albums`,
-  songs: `/api/${VERSION}/songs`
+  songs: `/api/${VERSION}/songs`,
+  docs: '/api-docs',
 }
 
 export default routes

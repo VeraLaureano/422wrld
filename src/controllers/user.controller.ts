@@ -6,7 +6,6 @@ import { setUser } from '../services/auth.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { compareHashes } from '../utils/compareHashes'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
-import { VERSION } from '../config/env'
 import routes from '../config/routes'
 
 // Define a function to handle user signups
@@ -31,8 +30,7 @@ export const postUserSignup = asyncWrapper(
     await createUser({
       name,
       email,
-      password: hashedPassword,
-      isAuthenticated: false
+      password: hashedPassword
     })  
 
     // Redirect to /login route
@@ -49,7 +47,7 @@ export const postUserLogin = asyncWrapper(
     // Find the user with the specified email
     const data = await findOneUser(email)
 
-    // Return an error if the user does not exist
+    // Redirect to home if the user does not exist
     if (!data) 
       return res.redirect('/')
 
@@ -63,8 +61,6 @@ export const postUserLogin = asyncWrapper(
         error: 'INTERNAL_SERVER_ERROR',
         statusCode: 500
       })
-
-    data.isAuthenticated = true
 
     // Generate a new session ID and store the user data in a Map
     const sessionID = uuidv4()
@@ -105,11 +101,3 @@ export const deleteUser = asyncWrapper(
     })
   }
 )
-
-export const getSignup = (_req: AuthenticatedRequest, res: Response) => {
-  return res.render('signup', { VERSION })
-}
-
-export const getLogin = (_req: AuthenticatedRequest, res: Response) => {
-  return res.render('login', { VERSION })
-}

@@ -7,15 +7,15 @@ export const SongSchema = new Schema<Song>({
     required: [true, 'MUST_PROVIDE_NAME']
   },
   artist: {
-    type: [String, Array],
+    type: [String],
     required: [true, 'MUST_PROVIDE_ARTIST']
   },
   producer: {
-    type: [String, Array],
+    type: [String],
     required: [true, 'MUST_PROVIDE_PRODUCER']
   },
   genre: {
-    type: [String, Array],
+    type: [String],
     required: [true, 'MUST_PROVIDE_GENRE']
   },
   release: {

@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { getLogin, getSignup, postUserLogin, postUserSignup } from '../controllers/user.controller'
+import { postUserLogin, postUserSignup } from '../controllers/user.controller'
 
 const router = Router()
 
-router.route('/signup').get(getSignup).post(postUserSignup)
-router.route('/login').get(getLogin).post(postUserLogin)
+router.route('/signup').post(postUserSignup)
+router.route('/login').post(postUserLogin)
 
 export { router as userRouter }

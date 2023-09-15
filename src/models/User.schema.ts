@@ -4,21 +4,18 @@ import { User } from '../interfaces/user.interface'
 const UserSchema = new Schema<User>({
   name: {
     type: String,
-    required: true
+    required: [true, 'MUST_PROVIDE_NAME'],
+    unique: true
   },
   email: {
     type: String,
-    required: true,
+    required: [true, 'MUST_PROVIDE_EMAIL'],
     unique: true
   },
   password: {
     type: String,
-    required: true,
-  },
-  isAuthenticated: {
-    type: Boolean,
-    default: false
-  },
+    required: [true, 'MUST_PROVIDE_PASSWORD'],
+  }
 }, 
 { timestamps: true })
 
