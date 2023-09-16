@@ -1,6 +1,6 @@
 export const getOneSongDocV1 = {
   get: {
-    tags: ['Song READ operations'], 
+    tags: ['Song READ operaction'], 
     description: 'Get one song from the database',
     operationId: 'getOneSongs',
     parameters: [ {

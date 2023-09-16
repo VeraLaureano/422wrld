@@ -1,5 +1,5 @@
 export const tags = [
   {
-    name: 'Song READ operations'
+    name: 'Song READ operaction'
   }
 ]

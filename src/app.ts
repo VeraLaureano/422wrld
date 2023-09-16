@@ -12,8 +12,8 @@ import { albumRouter } from './routes/album.route'
 import { songRouter } from './routes/song.route'
 import { userRouter } from './routes/user.route'
 import { adminRouter } from './routes/admin.route'
-import { serve, setup } from 'swagger-ui-express'
-import docs from './docs'
+import { serve } from 'swagger-ui-express'
+import { docsRouter } from './routes/docs.route'
 
 // Create an Express application
 const app = express()
@@ -35,7 +35,7 @@ app.use(routes.admin, restrictToAdminOnly, adminRouter) // Admin routes
 app.use(routes.artists, restrictTologgedInUserOnly, artistsRouter) // Artist routes
 app.use(routes.albums, restrictTologgedInUserOnly, albumRouter) // Album routes
 app.use(routes.songs,songRouter) // Song routes
-app.use(routes.docs, serve, setup(docs))
+app.use(routes.docs, serve, docsRouter)
 
 // Set up 404 error handler
 app.use(notFound)

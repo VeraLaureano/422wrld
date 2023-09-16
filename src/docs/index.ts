@@ -1,15 +1,18 @@
 import { basicInfo } from './basicInfo'
-import { components } from './components'
 import { servers } from './servers'
 import { songDocsV1 } from './song'
+import { songComponents } from './song/songComponents'
 import { tags } from './tags'
 
-const docs = {
+export const setupSongsDocs = {
   ...basicInfo,
   ...servers,
-  ...components,
-  ...tags,
+  ...songComponents,
+  ...tags[0],
   ...songDocsV1
 }
 
-export default docs
+export const setupAdminDocs = {
+  ...basicInfo,
+  ...servers
+}
