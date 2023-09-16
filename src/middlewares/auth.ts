@@ -2,23 +2,24 @@
 import { NextFunction, Response } from 'express'
 import { getUser } from '../services/auth.service'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
-import routes from '../config/routes'
 
 // Define a middleware function to restrict access to certain routes to logged-in users only
 export const restrictTologgedInUserOnly = async (req : AuthenticatedRequest, res: Response, next: NextFunction) => {
   // Get session ID from cookie
   const { cookies: {uid} } = req
 
+
   // Check if user is logged in
   if (!uid)
-    return res.redirect(`${routes.user}/login`)
+    // the redirection fails because it sends to the route but with the GET method instead of POST, jajajaja noooo epic fail
+    return res.redirect(307, '/api/v1/user/login')
 
   // Get user object from Map
   const user = getUser(uid)
 
   // Check if user object exists
   if (!user)
-    return res.redirect(`${routes.user}/login`)
+    return res.redirect('/api/v1/user/login')
 
   req.user = user
 

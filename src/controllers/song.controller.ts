@@ -4,6 +4,7 @@ import { createSong, findAllSongs, findAndDeleteSong, findAndUpdateSong, findOne
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import SongModel from '../models/Song.model'
 import { regex } from '../utils/regex'
+import { deleteSuccess, internalServerError } from '../utils/messages'
 
 /**
  * @method [GET]
@@ -36,11 +37,7 @@ export const getOneSong = asyncWrapper(
     const data = await findOneSong(id)
 
     if (!data)
-      return res.status(500).json({
-        message: `NO_SONG_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('song', id))
 
     return res.status(200).json(data)
   }
@@ -66,11 +63,7 @@ export const patchSong = asyncWrapper(
     const newData = await findAndUpdateSong(id, body)
     
     if (!newData)
-      return res.status(500).json({
-        message: `NO_SONG_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('song', id))
 
     return res.status(201).json(newData)
   }
@@ -85,16 +78,8 @@ export const deleteSong = asyncWrapper(
     const data = await findAndDeleteSong(id)
 
     if (!data)
-      return res.status(500).json({
-        message: `NO_SONG_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('song', id))
 
-    return res.status(204).json({
-      message: 'DELETE_SUCCESS',
-      data: null,
-      statusCode: 204
-    })
+    return res.status(204).json(deleteSuccess)
   }
 )

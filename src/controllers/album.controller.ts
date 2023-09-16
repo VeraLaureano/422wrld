@@ -4,6 +4,7 @@ import { asyncWrapper } from '../utils/asyncWrapper'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import AlbumModel from '../models/Album.model'
 import { regex } from '../utils/regex'
+import { deleteSuccess, internalServerError } from '../utils/messages'
 
 /**
  * @method [GET]
@@ -35,11 +36,7 @@ export const getOneAlbum = asyncWrapper(
     const data = await findOneAlbum(id)
 
     if (!data)
-      return res.status(500).json({
-        message: `NO_ALBUM_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('album', id))
 
     return res.status(200).json(data)
   }
@@ -84,16 +81,8 @@ export const deleteAlbum = asyncWrapper(
     const data = await findAndDeleteAlbum(id)
 
     if (!data)
-      return res.status(500).json({
-        message: `NO_ALBUM_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('album', id))
 
-    return res.status(204).json({
-      message: 'DELETE_SUCCESS',
-      data: null,
-      statusCode: 204
-    })
+    return res.status(204).json(deleteSuccess)
   }
 )

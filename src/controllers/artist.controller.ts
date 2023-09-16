@@ -4,6 +4,7 @@ import { asyncWrapper } from '../utils/asyncWrapper'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import ArtistModel from '../models/Artist.model'
 import { regex } from '../utils/regex'
+import { deleteSuccess, internalServerError } from '../utils/messages'
 
 /**
  * @method [GET]
@@ -38,11 +39,7 @@ export const getOneArtist = asyncWrapper(
 
     // If no artist was found with the given id, return an error response.
     if (!data) 
-      return res.status(500).json({
-        message: `NO_SONG_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('artist', id))
 
     // If the artist was successfully found, return a success response with the artist's data.
     return res.status(200).json(data)
@@ -78,11 +75,7 @@ export const patchArtist = asyncWrapper(
 
     // If no artist was found with the given id, return an error response.
     if (!newData) 
-      return res.status(500).json({
-        message: `NO_SONG_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('artist', id))
 
     // If the artist was successfully updated, return a success response.
     return res.status(201).json(newData)
@@ -100,17 +93,9 @@ export const deleteArtist = asyncWrapper(
 
     // If no artist was found with the given id, return an error response.
     if (!data)
-      return res.status(500).json({
-        message: `NO_SONG_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('artist', id))
 
     // If the artist was successfully deleted, return a success response.
-    return res.status(204).json({
-      message: 'DELETE_SUCCESS',
-      data: null,
-      statusCode: 204
-    })
+    return res.status(204).json(deleteSuccess)
   }
 )

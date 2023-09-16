@@ -5,7 +5,7 @@ import cors from 'cors'
 import routes from './config/routes'
 import { notFound } from './middlewares/notFound'
 import { restrictToAdminOnly } from './middlewares/admin'
-import { checkAuth, restrictTologgedInUserOnly } from './middlewares/auth'
+import { restrictTologgedInUserOnly } from './middlewares/auth'
 import { artistsRouter } from './routes/artist.route'
 import { albumRouter } from './routes/album.route'
 import { songRouter } from './routes/song.route'
@@ -23,14 +23,13 @@ app.use(cors()) // Enable CORS
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser()) // Parse cookie headers
 app.use(express.static('public')) // Public directory
-app.use(checkAuth)
 
 // Set up routing
 app.use(routes.user, userRouter) // User routes
 app.use(routes.admin, restrictToAdminOnly, adminRouter) // Admin routes
 app.use(routes.artists, restrictTologgedInUserOnly, artistsRouter) // Artist routes
 app.use(routes.albums, restrictTologgedInUserOnly, albumRouter) // Album routes
-app.use(routes.songs,songRouter) // Song routes
+app.use(routes.songs, songRouter) // Song routes
 app.use(routes.docs, serve, docsRouter)
 
 // Set up 404 error handler

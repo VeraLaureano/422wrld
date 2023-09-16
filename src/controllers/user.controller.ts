@@ -7,6 +7,7 @@ import { asyncWrapper } from '../utils/asyncWrapper'
 import { compareHashes } from '../utils/compareHashes'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import routes from '../config/routes'
+import { deleteSuccess, internalServerError } from '../utils/messages'
 
 // Define a function to handle user signups
 export const postUserSignup = asyncWrapper(
@@ -22,6 +23,8 @@ export const postUserSignup = asyncWrapper(
         statusCode: 400
       })
 
+    // if (name === 'admin')
+    //   return res.status(404).json({})
 
     // Hash the user's password using bcrypt
     const hashedPassword = await hash(password, saltRounds)
@@ -34,7 +37,7 @@ export const postUserSignup = asyncWrapper(
     })  
 
     // Redirect to /login route
-    return res.redirect(`${routes.user}/login`)
+    return res.redirect(307, `${routes.user}/login`)
   }
 )
 
@@ -88,16 +91,8 @@ export const deleteUser = asyncWrapper(
     const data = await findAndDeleteUser(id)
 
     if (!data)
-      return res.status(500).json({
-        message: `NO_USER_WITH_ID_${id}`,
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+      return res.status(500).json(internalServerError('user', id))
 
-    return res.status(204).json({
-      message: 'DELETE_SUCCESS',
-      data: null,
-      statusCode: 204
-    })
+    return res.status(204).json(deleteSuccess)
   }
 )
