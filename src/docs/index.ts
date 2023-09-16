@@ -1,3 +1,5 @@
+import { adminDocsV1 } from './admin'
+import { adminComponents } from './admin/adminComponents'
 import { basicInfo } from './basicInfo'
 import { servers } from './servers'
 import { songDocsV1 } from './song'
@@ -14,5 +16,8 @@ export const setupSongsDocs = {
 
 export const setupAdminDocs = {
   ...basicInfo,
-  ...servers
+  ...servers,
+  ...adminComponents,
+  ...tags[1],
+  ...adminDocsV1
 }

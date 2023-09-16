@@ -6,9 +6,13 @@ import { Artist } from '../interfaces/artist.interface'
  * @type Promise
  */
 export const findAllArtists = async (pages: number, artistNumber: number, dataFind: object) => {
+  // Calculate the number of documents to skip based on the current page and number of artists per page
   const skip = (pages - 1) * artistNumber
 
+  // Find all artists that match the specified criteria, skipping the appropriate number of documents and limiting the results to the specified number of artists
   const responseArtists = await ArtistModel.find({...dataFind}).skip(skip).limit(artistNumber)
+
+  // Return the response artists
   return responseArtists
 }
 

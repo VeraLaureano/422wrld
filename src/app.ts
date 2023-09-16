@@ -1,11 +1,10 @@
 // Import modules
-import express, { Response } from 'express'
+import express from 'express'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import routes from './config/routes'
 import { notFound } from './middlewares/notFound'
 import { restrictToAdminOnly } from './middlewares/admin'
-import { AuthenticatedRequest } from './interfaces/authRequest.interface'
 import { checkAuth, restrictTologgedInUserOnly } from './middlewares/auth'
 import { artistsRouter } from './routes/artist.route'
 import { albumRouter } from './routes/album.route'
@@ -24,12 +23,9 @@ app.use(cors()) // Enable CORS
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser()) // Parse cookie headers
 app.use(express.static('public')) // Public directory
+app.use(checkAuth)
 
 // Set up routing
-app.get('/', checkAuth, (_req: AuthenticatedRequest, res: Response) => {
-  // Home page
-  return res.render('home')
-})
 app.use(routes.user, userRouter) // User routes
 app.use(routes.admin, restrictToAdminOnly, adminRouter) // Admin routes
 app.use(routes.artists, restrictTologgedInUserOnly, artistsRouter) // Artist routes

@@ -2,7 +2,7 @@
 import { NextFunction, Response } from 'express'
 import { getUser } from '../services/auth.service'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
-import { VERSION } from '../config/env'
+import routes from '../config/routes'
 
 // Define a middleware function to restrict access to certain routes to logged-in users only
 export const restrictTologgedInUserOnly = async (req : AuthenticatedRequest, res: Response, next: NextFunction) => {
@@ -11,14 +11,14 @@ export const restrictTologgedInUserOnly = async (req : AuthenticatedRequest, res
 
   // Check if user is logged in
   if (!uid)
-    return res.render('login', { method: 'POST', VERSION: VERSION, message: 'UNAUTHORIZED' })
+    return res.redirect(`${routes.user}/login`)
 
   // Get user object from Map
   const user = getUser(uid)
 
   // Check if user object exists
   if (!user)
-    return res.render('login', { method: 'POST', VERSION: VERSION, message: 'UNAUTHORIZED' })
+    return res.redirect(`${routes.user}/login`)
 
   req.user = user
 
