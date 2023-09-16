@@ -1,8 +1,10 @@
 import { Album } from '../interfaces/album.interface'
 import AlbumModel from '../models/Album.model'
 
-export const findAllAlbums = async () => {
-  const responseAlbums = await AlbumModel.find({})
+export const findAllAlbums = async (pages: number, albumsNumber: number, dataFind: object) => {
+  const skip = (pages - 1) * albumsNumber
+
+  const responseAlbums = await AlbumModel.find({...dataFind}).skip(skip).limit(albumsNumber)
   return responseAlbums
 }
 

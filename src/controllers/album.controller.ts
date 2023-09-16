@@ -2,14 +2,26 @@ import { Response } from 'express'
 import { createAlbum, findAllAlbums, findAndDeleteAlbum, findAndUpdateAlbum, findOneAlbum } from '../services/album.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
+import AlbumModel from '../models/Album.model'
+import { regex } from '../utils/regex'
 
 /**
  * @method [GET]
  * @description search all albums
  */
 export const getAllAlbums = asyncWrapper(
-  async (_req: AuthenticatedRequest, res: Response) => {
-    const data = await findAllAlbums()
+  async ({query: {page, perPage, artist, genre}}: AuthenticatedRequest, res: Response) => {
+    const pageNumber: number = parseInt(page as string, 10) || 1
+    const totalAlbums: number = await AlbumModel.countDocuments({})
+    const albumsPerPage: number = parseInt(perPage as string, 10) || totalAlbums
+
+    let dataFind: object = {}
+
+    if (artist as string) dataFind = {...dataFind, artist: regex(artist as string)}
+    if (genre as string) dataFind = {...dataFind, genre: regex(genre as string)}
+
+    const data = await findAllAlbums(pageNumber, albumsPerPage, dataFind)
+
     res.status(200).json(data)
   }
 )

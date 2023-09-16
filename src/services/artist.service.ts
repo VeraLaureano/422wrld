@@ -5,8 +5,10 @@ import { Artist } from '../interfaces/artist.interface'
  * @returns all artists found
  * @type Promise
  */
-export const findAllArtists = async () => {
-  const responseArtists = await ArtistModel.find({})
+export const findAllArtists = async (pages: number, artistNumber: number, dataFind: object) => {
+  const skip = (pages - 1) * artistNumber
+
+  const responseArtists = await ArtistModel.find({...dataFind}).skip(skip).limit(artistNumber)
   return responseArtists
 }
 

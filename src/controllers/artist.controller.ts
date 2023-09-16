@@ -2,14 +2,26 @@ import { Response } from 'express'
 import { findAllArtists, findOneArtist, createArtist, findAndDeleteArtist, findAndUpdateArtist } from '../services/artist.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
+import ArtistModel from '../models/Artist.model'
+import { regex } from '../utils/regex'
 
 /**
  * @method [GET]
  * @description search all artists
  */
 export const getAllArtists = asyncWrapper(
-  async (_req: AuthenticatedRequest, res: Response) => {
-    const data = await findAllArtists()
+  async ({query: {page, perPage, artist, genre}}: AuthenticatedRequest, res: Response) => {
+    const pageNumber: number = parseInt(page as string, 10) || 1
+    const totalArtists: number = await ArtistModel.countDocuments({})
+    const artistsPerPage: number = parseInt(perPage as string, 10) || totalArtists
+
+    let dataFind: object = {}
+
+    if (artist as string) dataFind = { ...dataFind, artist: regex(artist as string) }
+    if (genre as string) dataFind = { ...dataFind, genre: regex(genre as string)}
+
+    const data = await findAllArtists(pageNumber, artistsPerPage, dataFind)
+
     return res.status(200).json(data)
   }
 )

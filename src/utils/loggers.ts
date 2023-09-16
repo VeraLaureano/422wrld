@@ -11,7 +11,7 @@ export const logInfo = (...params: [string]) => {
 }
 
 // Define a function to log errors
-export const logError = (...params: [unknown]) => {
+export const logError = (...params: [unknown] | [string, Error]) => {
   // Check if NODE_ENV is set to 'development'
   if (NODE_ENV === 'development') {
     // Log the error to the console

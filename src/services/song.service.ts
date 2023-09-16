@@ -1,8 +1,10 @@
 import SongModel from '../models/Song.model'
 import { Song } from '../interfaces/song.interface'
 
-export const findAllSongs = async () => {
-  const responseSongs = await SongModel.find({})
+export const findAllSongs = async (pages: number, songsNumber: number, dataFind: object) => {
+  const skip = (pages - 1) * songsNumber
+
+  const responseSongs = await SongModel.find({...dataFind}).skip(skip).limit(songsNumber)
   return responseSongs
 }
 
