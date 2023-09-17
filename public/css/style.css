@@ -1,0 +1,84 @@
+:root {
+  --dark: #262626;
+  --red: #A62121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--red);
+}
+
+.author {
+  position: relative;
+  color: var(--dark);
+  background-color: var(--red);
+  padding: .15rem;
+}
+
+@keyframes hover-animation {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.author:hover::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+  animation-name: hover-animation;
+  animation-duration: .127s;
+}
+
+body {
+  background-color: var(--dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--red);
+}
+
+p {
+  color: var(--red);
+  transition: .124s;
+  margin-bottom: .5rem;
+}
+
+.blink {
+  animation: blink-animation 1.384s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1.384s steps(5, start) infinite;
+  text-overflow: fade(10%);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.blink:hover {
+  animation: none;
+}
+  
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+  
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+  
+  

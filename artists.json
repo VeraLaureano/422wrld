@@ -1,93 +1,246 @@
-{
-    "imageURL": "https://instagram.flpg1-1.fna.fbcdn.net/v/t51.2885-19/374720732_135203229662888_2293027917940746544_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flpg1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=37L33Z8AHlQAX8iVU1S&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfBySa9LMFDBrO0GTG_LEkR-AN1WmN2oAGiVRep097Bo4A&oe=6506B505&_nc_sid=ee9879",
-  "pseudonym": "Duki",
-  "fullName": "Mauro Ezequiel Lombardo Quiroga",
-  "born": "1996-06-24",
-  "biography": "Mauro Ezequiel Lombardo nació el 24 de junio de 1996 en Almagro, Buenos Aires, siendo el segundo hijo de Sandra Quiroga Pérez, una abogada, y Guillermo Lombardo Ninaquispe, un diseñador gráfico.7​ Posee ascendencia irlandesa e indígena por su madre e italiano y austro-hungaro por su padre. Su hermano mayor, Nahuel, es especializado en ingeniería de sonido, y su hermana menor, Candela, actúa como parte de su staff de trabajo.8​ Lombardo se crio en La Paternal luego de que sus padres se divorciaran, y a pesar de haber concurrido a la escuela, jamás acabó la secundaria.8​Más tarde comentaría acerca de esto: «Era otro nivel de desinterés ya. No conectaba con nadie». Durante su infancia, tuvo muchas estimulaciones musicales por parte de su familia, escuchando todo tipo de géneros, incluyendo rock nacional, salsa, música disco, pop latino, y punk rock. Los artistas que más escuchaban sus padres eran Virus, Queen, Alejandro Sanz y Luis Miguel, y su hermano era fanático de Luis Alberto Spinetta y Charly García.10​ Antes de descubrir el rap, Lombardo era fanático del garage rock y su banda preferida era Linkin Park, por lo que su deseo de pequeño era formar un grupo de rock.11​ Fue a través de Eminem y 50 Cent que empezaría a desarrollar un largo interés por el hip-hop y el rap. Luego de dejar la escuela, Lombardo trabajó como repartidor de comida y en una farmacia. El freestyle le llamó la atención luego de ver una batalla de rap entre los longevos raperos Kodigo y Tata, en una competencia llamada A Cara de Perro del 2010.8​Poco tiempo después empezó a rimar sobre una base de rap y logró congeniar varias frases, motivandolo para practicar este tipo de estilo.9​Alrededor del 2012, Lombardo empezaría a incursionar en el mundo de las batallas de rap, concursando en diferentes competiciones de Buenos Aires bajo los nombres de 'Wanakin' y, de manera definitiva, Duki, inspirado en el personaje animado Doki del canal de dibujos animados infantiles Discovery Kids.", 
-  "activity": { 
-      "from": 2015,
-      "to": "Actualiadad"
+[
+  {
+      "_id": "650233cffb6479fe2c3a1f91",
+      "imageURL": "https://instagram.flpg1-1.fna.fbcdn.net/v/t51.2885-19/374720732_135203229662888_2293027917940746544_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flpg1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=37L33Z8AHlQAX8iVU1S&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfBySa9LMFDBrO0GTG_LEkR-AN1WmN2oAGiVRep097Bo4A&oe=6506B505&_nc_sid=ee9879",
+      "pseudonym": "Duki",
+      "fullName": "Mauro Ezequiel Lombardo Quiroga",
+      "born": "1996-06-24",
+      "biography": "Mauro Ezequiel Lombardo nació el 24 de junio de 1996 en Almagro, Buenos Aires, siendo el segundo hijo de Sandra Quiroga Pérez, una abogada, y Guillermo Lombardo Ninaquispe, un diseñador gráfico.7​ Posee ascendencia irlandesa e indígena por su madre e italiano y austro-hungaro por su padre. Su hermano mayor, Nahuel, es especializado en ingeniería de sonido, y su hermana menor, Candela, actúa como parte de su staff de trabajo.8​ Lombardo se crio en La Paternal luego de que sus padres se divorciaran, y a pesar de haber concurrido a la escuela, jamás acabó la secundaria.8​Más tarde comentaría acerca de esto: «Era otro nivel de desinterés ya. No conectaba con nadie». Durante su infancia, tuvo muchas estimulaciones musicales por parte de su familia, escuchando todo tipo de géneros, incluyendo rock nacional, salsa, música disco, pop latino, y punk rock. Los artistas que más escuchaban sus padres eran Virus, Queen, Alejandro Sanz y Luis Miguel, y su hermano era fanático de Luis Alberto Spinetta y Charly García.10​ Antes de descubrir el rap, Lombardo era fanático del garage rock y su banda preferida era Linkin Park, por lo que su deseo de pequeño era formar un grupo de rock.11​ Fue a través de Eminem y 50 Cent que empezaría a desarrollar un largo interés por el hip-hop y el rap. Luego de dejar la escuela, Lombardo trabajó como repartidor de comida y en una farmacia. El freestyle le llamó la atención luego de ver una batalla de rap entre los longevos raperos Kodigo y Tata, en una competencia llamada A Cara de Perro del 2010.8​Poco tiempo después empezó a rimar sobre una base de rap y logró congeniar varias frases, motivandolo para practicar este tipo de estilo.9​Alrededor del 2012, Lombardo empezaría a incursionar en el mundo de las batallas de rap, concursando en diferentes competiciones de Buenos Aires bajo los nombres de 'Wanakin' y, de manera definitiva, Duki, inspirado en el personaje animado Doki del canal de dibujos animados infantiles Discovery Kids.",
+      "activity": {
+          "from": 2015,
+          "to": "Actualiadad",
+          "_id": "650233cffb6479fe2c3a1f92"
+      },
+      "nationality": "Argentina",
+      "children": "No",
+      "genre": [
+          "Trap",
+          "Regueton",
+          "Freestyle",
+          "Hip Hop",
+          "Pop Rap",
+          "R&B"
+      ],
+      "listen": {
+          "spotify": "https://open.spotify.com/intl-es/artist/1bAftSH8umNcGZ0uyV7LMg?si=nb86ymfMQW2qMC05FAd4cA",
+          "ytbMusic": "https://music.youtube.com/channel/UCtLchRAZex11gn-ah1_1Pgw?si=2OLBupQ8CUCtYepl",
+          "amazonMusic": "https://music.amazon.com/artists/B005UZ1GE4/duki?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_PTP5JVIuJBthIov4ib2CVTiUN",
+          "appleMusic": "https://music.apple.com/ar/artist/duki/408527217",
+          "_id": "650233cffb6479fe2c3a1f93"
+      },
+      "profiles": {
+          "youtube": "https://www.youtube.com/@duki/about",
+          "instagram": "https://www.instagram.com/duki/",
+          "twitter": "https://twitter.com/DukiSSJ",
+          "_id": "6506f4e9fe975a65a2a8b2f4"
+      },
+      "albums": [
+          "64ff079a4697e670db30830f"
+      ],
+      "tracks": [],
+      "awards": [
+          {
+              "year": 2018,
+              "category": "Mejor artista latinoamericano sur",
+              "nomination": "Duki",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f94"
+          },
+          {
+              "year": 2018,
+              "category": "Mejor artista musical",
+              "nomination": "Duki",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f95"
+          },
+          {
+              "year": 2019,
+              "category": "Mejor canción/álbum de música urbana/trap",
+              "nomination": "Si te sentís sola",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f96"
+          },
+          {
+              "year": 2019,
+              "category": "Mejor colaboración de música urbana/trap",
+              "nomination": "Sin culpa (ft DrefQuila)",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f97"
+          },
+          {
+              "year": 2020,
+              "category": "Mejor fusion/interpretacion urbana",
+              "nomination": "Hablamos mañana",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f98"
+          },
+          {
+              "year": 2020,
+              "category": "Mejor canción Trap/Hip-Hop",
+              "nomination": "Goteo",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f99"
+          },
+          {
+              "year": 2020,
+              "category": "Mejor colaboración de música urbana/trap",
+              "nomination": "Goteo(Remix) - Tumbando el club (Remix)",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f9a"
+          },
+          {
+              "year": 2020,
+              "category": "Mejor canción/álbum de música urbana/trap",
+              "nomination": "Tumbando el club (Remix)",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f9b"
+          },
+          {
+              "year": 2022,
+              "category": "Mejor álbum de música urbana",
+              "nomination": "Desde el fin del mundo",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f9c"
+          },
+          {
+              "year": 2022,
+              "category": "Mejor canción de música urbana",
+              "nomination": "Como si no importara (ft Emilia)",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f9d"
+          },
+          {
+              "year": 2022,
+              "category": "Mejor colaboración de música urbana",
+              "nomination": "Como si no importara (ft Emilia)",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f9e"
+          },
+          {
+              "year": 2023,
+              "category": "Mejor álbum de música urbana",
+              "nomination": "Temporada de reggaetón 2",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1f9f"
+          },
+          {
+              "year": 2023,
+              "category": "Mejor colaboración de música urbana",
+              "nomination": "Duki: BZRP Music Sessions, Vol. 50 (ft Bizarrap)",
+              "result": "Nominado",
+              "_id": "650233cffb6479fe2c3a1fa0"
+          }
+      ],
+      "__v": 0
   },
-  "nationality": "Argentina",
-  "children": "No", 
-  "genre":  ["Trap", "Regueton", "Freestyle", "Hip Hop", "Pop Rap", "R&B"],
-  "listen":  {
-    "spotify": "https://open.spotify.com/intl-es/artist/1bAftSH8umNcGZ0uyV7LMg?si=nb86ymfMQW2qMC05FAd4cA",
-    "ytbMusic": "https://music.youtube.com/channel/UCtLchRAZex11gn-ah1_1Pgw?si=2OLBupQ8CUCtYepl",
-    "amazonMusic": "https://music.amazon.com/artists/B005UZ1GE4/duki?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_PTP5JVIuJBthIov4ib2CVTiUN",
-    "appleMusic": "https://music.apple.com/ar/artist/duki/408527217"
+  {
+      "_id": "65031983011334fa31b5cc40",
+      "imageURL": "https://instagram.flpg1-1.fna.fbcdn.net/v/t51.2885-19/375045799_269564825944079_8918467736969783100_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flpg1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=EfDVIrZPqukAX_O1qyn&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfBEXhjakF2H-q2ZWykahUcQbASBR81uwRHtdSMOxKj1nA&oe=65079ADF&_nc_sid=ee9879",
+      "pseudonym": "YSY A",
+      "fullName": "Alejo Nahuel Acosta",
+      "born": "1998-07-12",
+      "biography": "Alejo Nahuel Acosta (Buenos Aires, Argentina; 12 de julio de 1998), conocido artísticamente como YSY A,1​ es un rapero, productor, freestyler, cantautor acústico y diseñador argentino.Alejo Acosta se hizo conocido en 2013 cuando formó la competencia de rap El Quinto Escalón con apenas 13 años, junto al músico y presentador Muphasa MC. En 2016 la competición se popularizó de manera desenfrenada, y se volvería la más importante de Sudamérica, además de ser cuna de muchos artistas emergentes de la escena del trap argentino. Luego de la finalización del torneo el 11 de noviembre de 2017 con un evento en el Microestadio Malvinas Argentinas, Acosta, bajo el seudónimo YSY A, decidió lanzar su carrera musical. En 2018, formó parte del supergrupo 'Modo Diablo', junto a los raperos Duki y Neo Pistea, que popularizó al género del trap en Argentina gracias a sus sencillos «Quavo» y «Trap N' Export», y el 11 de noviembre de ese mismo año lanzó su álbum de estudio debut, Antezana 247, que tuvo una gran recepción pór parte del público y críticos. El 11 de noviembre de 2019 publicó su segundo álbum de estudio, Hecho a Mano. En 2020 lanzó una serie de sencillos bajo el nombre de #YSYA2020, de los cuales «Silbando» y «Un Flow de Infarto» sumaron millones de visitas en YouTube, y sacó su primer EP, Mordiendo El Bozal. El 11 de noviembre de 2021 publicó su tercer álbum de estudio, Trap de Verdad, bajo su propio sello discográfico, Sponsor Dio$. Un año después, en la misma fecha, sacó su cuarto álbum de estudio, YSYSMO, que se convirtió en su disco más exitoso a nivel comercial, teniendo el debut más grande en las listas de éxitos a pesar de no contar con sencillos ni colaboraciones.",
+      "activity": {
+          "from": 2015,
+          "to": "Actualiadad",
+          "_id": "650319d3011334fa31b5cc57"
+      },
+      "nationality": "Argentina",
+      "children": "Bruno Acosta",
+      "genre": [
+          "Trap",
+          "Freestyle",
+          "Hip Hop",
+          "Rap"
+      ],
+      "listen": {
+          "spotify": "https://open.spotify.com/intl-es/artist/2qWK8K2Jfh67UqtwY8tCW6",
+          "ytbMusic": "https://music.youtube.com/channel/UCJyuVUIg-MCLF_LcccnzW3g",
+          "amazonMusic": "https://music.amazon.com/artists/B074QG7S93/ysy-a",
+          "appleMusic": "https://music.apple.com/cl/artist/ysy-a/1270499144",
+          "_id": "650319d3011334fa31b5cc58"
+      },
+      "profiles": {
+          "youtube": "https://www.youtube.com/@ysy__a/about",
+          "instagram": "https://www.instagram.com/ysy__a/",
+          "twitter": "https://twitter.com/ysy__a",
+          "_id": "6506f4e9fe975a65a2a8b302"
+      },
+      "albums": [
+          "64fe5d0ebd24f842a8c40bfd"
+      ],
+      "tracks": [],
+      "awards": [
+          {
+              "year": 2020,
+              "category": "Mejor canción o álbum urbano/trap",
+              "nomination": "Tumbando el Club (Remix)",
+              "result": "Nominado",
+              "_id": "650319d3011334fa31b5cc59"
+          },
+          {
+              "year": 2020,
+              "category": "Mejor colaboración de música urbana/trap",
+              "nomination": "Tumbando el Club (Remix)",
+              "result": "Nominado",
+              "_id": "650319d3011334fa31b5cc5a"
+          }
+      ],
+      "__v": 0
   },
-  "profiles": {
-    "youtube": "https://www.youtube.com/@duki/about",
-    "instagram": "https://www.instagram.com/duki/",
-    "twitter": "https://twitter.com/DukiSSJ"
-  },
-  "albums": ["64ff079a4697e670db30830f"],
-  "tracks": [],
-  "awards": [{
-    "year": 2018,
-    "category": "Mejor artista latinoamericano sur",
-    "nomination": "Duki",
-    "result": "Nominado"
-  },{
-    "year": 2018,
-    "category": "Mejor artista musical",
-    "nomination": "Duki",
-    "result": "Nominado"
-  },{
-    "year": 2019,
-    "category": "Mejor canción/álbum de música urbana/trap",
-    "nomination": "Si te sentís sola",
-    "result": "Nominado"
-  },{
-    "year": 2019,
-    "category": "Mejor colaboración de música urbana/trap",
-    "nomination": "Sin culpa (ft DrefQuila)",
-    "result": "Nominado"
-  }, {
-    "year": 2020,
-    "category": "Mejor fusion/interpretacion urbana",
-    "nomination": "Hablamos mañana",
-    "result": "Nominado"
-  }, {
-    "year": 2020,
-    "category": "Mejor canción Trap/Hip-Hop",
-    "nomination": "Goteo",
-    "result": "Nominado"
-  }, {
-    "year": 2020,
-    "category": "Mejor colaboración de música urbana/trap",
-    "nomination": "Goteo(Remix) - Tumbando el club (Remix)",
-    "result": "Nominado"
-  }, {
-    "year": 2020,
-    "category": "Mejor canción/álbum de música urbana/trap",
-    "nomination": "Tumbando el club (Remix)",
-    "result": "Nominado"
-  }, {
-    "year": 2022,
-    "category": "Mejor álbum de música urbana",
-    "nomination": "Desde el fin del mundo",
-    "result": "Nominado"
-  }, {
-    "year": 2022,
-    "category": "Mejor canción de música urbana",
-    "nomination": "Como si no importara (ft Emilia)",
-    "result": "Nominado"
-  }, {
-    "year": 2022,
-    "category": "Mejor colaboración de música urbana",
-    "nomination": "Como si no importara (ft Emilia)",
-    "result": "Nominado"
-  }, {
-    "year": 2023,
-    "category": "Mejor álbum de música urbana",
-    "nomination": "Temporada de reggaetón 2",
-    "result": "Nominado"
-  }, {
-    "year": 2023,
-    "category": "Mejor colaboración de música urbana",
-    "nomination": "Duki: BZRP Music Sessions, Vol. 50 (ft Bizarrap)",
-    "result": "Nominado"
-  }]
-}
+  {
+      "_id": "65031d40011334fa31b5cc75",
+      "imageURL": "https://instagram.flpg1-1.fna.fbcdn.net/v/t51.2885-19/343643103_1369204437259461_4401633418378421220_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flpg1-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=IPotIU79iL0AX8sOz9m&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfDZ5iJHtwCqFwwmFkyff5lRY81ET2VKrNvOrYZDH0DXwA&oe=65076461&_nc_sid=ee9879",
+      "pseudonym": "Neo Pistea",
+      "fullName": "Sebastián Chinellato",
+      "born": "1994-10-05",
+      "biography": "Chinellato comenzó a relacionarse con la cultura del hip hop a través del grafiti. Aprendió a rapear a los 16 años con artistas reconocidos en la escena under como CNO y Obie Wan Shot. Grabó sus primeros temas con programas de grabación que instaló en la netbook del programa Conectar Igualdad, del gobierno argentino.3​ Duki declaró en 2019: «Allá por 2014, este enfermo se grababa, se producía solo y hacía trap antes que nadie». Su carrera comenzó en 2015, cuando lanzó los temas «White Chocolate», «Tony The Kid» y «Black Chocolate». En el año 2017 lanzó su único EP titulado Oro y Perfume el cual contó con 4 sencillos y colaboraciones con los artistas Lara91k y Mike Southside. En el año 2018 formó parte del trío musical Modo Diablo junto a los raperos YSY A y Duki, con sencillos «Quavo» y «Trap N' Export» los cuales ayudaron a exponer el género del trap en Sudamérica.A fines de marzo de 2019 lanzó un remix de su tema «Tumbando el club» junto a otros traperos de argentina: Duki, Cazzu, Ysy A, Khea, Lucho SSJ, Marcianos Crew y Obie Wan Shot, C.R.O y Coqeéin Montana.6​2​ Ese mismo año participó del Lollapalooza Argentina. En el año 2021, lanzó su único álbum de estudio titulado Punkdemia, el cual contó con 13 sencillos y colaboraciones con artistas como Cazzu, Duki, YSY A, Neutro Shorty, De la Ghetto, Omar Montes, Dante Spinetta, entre otros. En Marzo de 2023 saca su último disco homónimo 'Neo' con un sonido nítido y bien pesado, con guitarras metaleras y un sonido único.",
+      "activity": {
+          "from": 2014,
+          "to": "Actualiadad",
+          "_id": "65031d40011334fa31b5cc76"
+      },
+      "nationality": "Argentina",
+      "children": "Amadeo Chinellato",
+      "genre": [
+          "Trap",
+          "Freestyle",
+          "Hip Hop",
+          "Rap"
+      ],
+      "listen": {
+          "spotify": "https://open.spotify.com/intl-es/artist/01m2XZ7m7rAz6KY3scTdaV",
+          "ytbMusic": "https://music.youtube.com/channel/UCtHVFWQtBzPt8m0J9e59TSQ",
+          "amazonMusic": "https://music.amazon.com/artists/B0788DKD5T/neo-pistea",
+          "appleMusic": "https://music.apple.com/us/artist/neo-pistea/1273451852",
+          "_id": "65031d40011334fa31b5cc77"
+      },
+      "profiles": {
+          "youtube": "https://www.youtube.com/@NeoPisteaOk/about",
+          "instagram": "https://www.instagram.com/ysy__a/",
+          "twitter": "https://www.instagram.com/neopistea",
+          "_id": "6506f4e9fe975a65a2a8b305"
+      },
+      "albums": [
+          "650210f6c53fcd1e07cbc467"
+      ],
+      "tracks": [],
+      "awards": [
+          {
+              "year": 2020,
+              "category": "Mejor canción o álbum urbano/trap",
+              "nomination": "Tumbando el Club (Remix)",
+              "result": "Nominado",
+              "_id": "65031d40011334fa31b5cc78"
+          },
+          {
+              "year": 2020,
+              "category": "Mejor colaboración de música urbana/trap",
+              "nomination": "Tumbando el Club (Remix)",
+              "result": "Nominado",
+              "_id": "65031d40011334fa31b5cc79"
+          }
+      ],
+      "__v": 0
+  }
+]
