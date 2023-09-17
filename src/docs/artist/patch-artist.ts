@@ -1,29 +1,29 @@
-export const deleteSongDocV1 = {
-  delete: {
-    tags: ['Admin CRUD operations'], 
-    description: 'Deleting a Song', 
-    operationId: 'deleteSong', 
+export const patchArtistDocV1 = {
+  patch: {
+    tags: ['Admin CUD operations'],
+    description: 'Update Artist', 
+    operationId: 'patchArtist', 
     parameters: [
       {
-        name: 'id', 
-        in: 'path', 
+        name: 'id',
+        in: 'path',
         schema: {
-          $ref: '#/components/schemas/songId', 
+          $ref: '#/components/schemas/artistID',
         },
         required: true,
-        description: 'Deleting a done Song', 
-      },
+        description: 'Id of Artist to be updated',
+      }
     ],
     responses: {
-      204: {
-        description: 'Song deleted successfully',
+      200: {
+        description: 'Artist updated successfully',
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/Delete',
+              $ref: '#/components/schemas/Artist',
             },
           },
-        }, 
+        },
       },
       500: {
         description: 'Server error', 

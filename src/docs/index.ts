@@ -1,23 +1,21 @@
-import { adminDocsV1 } from './admin'
-import { adminComponents } from './admin/adminComponents'
 import { basicInfo } from './basicInfo'
+import { docsPaths } from './paths'
 import { servers } from './servers'
-import { songDocsV1 } from './song'
-import { songComponents } from './song/songComponents'
 import { tags } from './tags'
+import { songID, albumID, artistID, Song, Album, Artist, User, ISError, Delete, Unauthorized } from './components'
 
-export const setupSongsDocs = {
-  ...basicInfo,
-  ...servers,
-  ...songComponents,
-  ...tags[0],
-  ...songDocsV1
+const schemas = {
+  components: {
+    schemas: {
+      songID, albumID, artistID, Song, Album, Artist, User, ISError, Delete, Unauthorized 
+    }
+  }
 }
 
-export const setupAdminDocs = {
+export const setupDocs = {
   ...basicInfo,
   ...servers,
-  ...adminComponents,
-  ...tags[1],
-  ...adminDocsV1
+  ...schemas,
+  ...tags,
+  ...docsPaths
 }

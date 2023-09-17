@@ -1,26 +1,26 @@
-export const patchSongDocV1 = {
+export const patchAlbumDocV1 = {
   patch: {
-    tags: ['Admin CRUD operations'],
-    description: 'Update song', 
-    operationId: 'patchSong', 
+    tags: ['Admin CUD operations'],
+    description: 'Update Album', 
+    operationId: 'patchAlbum', 
     parameters: [
       {
         name: 'id',
         in: 'path',
         schema: {
-          $ref: '#/components/schemas/songID',
+          $ref: '#/components/schemas/albumID',
         },
         required: true,
-        description: 'Id of Song to be updated',
+        description: 'Id of Album to be updated',
       }
     ],
     responses: {
       200: {
-        description: 'Song updated successfully',
+        description: 'Album updated successfully',
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/Song',
+              $ref: '#/components/schemas/Album',
             },
           },
         },

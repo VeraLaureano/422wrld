@@ -6,7 +6,6 @@ import { setUser } from '../services/auth.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { compareHashes } from '../utils/compareHashes'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
-import routes from '../config/routes'
 import { deleteSuccess, internalServerError } from '../utils/messages'
 
 // Define a function to handle user signups
@@ -37,7 +36,7 @@ export const postUserSignup = asyncWrapper(
     })  
 
     // Redirect to /login route
-    return res.redirect(307, `${routes.user}/login`)
+    return res.status(201).json({user: name, signup: true})
   }
 )
 
@@ -52,7 +51,7 @@ export const postUserLogin = asyncWrapper(
 
     // Redirect to home if the user does not exist
     if (!data) 
-      return res.redirect('/')
+      return res.status(500).json(internalServerError('user', email))
 
     // Compare the password with the hashed password in the database
     const isCorrect: boolean = await compareHashes(password, data.password)

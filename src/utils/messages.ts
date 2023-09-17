@@ -4,6 +4,12 @@ export const deleteSuccess = {
   statusCode: 204
 }
 
+export const authorizationRequired = {
+  message: 'AUTHORIZATION_REQUIRED',
+  error: 'UNAUTHORIZED',
+  statusCode: 401
+}
+
 export const internalServerError = (name: string, id: string): object => {
   return  {
     message: `NO_${name.toUpperCase()}_WITH_THIS_ID_${id}`,
@@ -11,4 +17,3 @@ export const internalServerError = (name: string, id: string): object => {
     statusCode: 500
   }
 }
-

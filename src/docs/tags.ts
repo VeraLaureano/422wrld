@@ -1,8 +1,14 @@
 export const tags = [
   {
+    name: 'User POST operations'
+  },
+  {
     name: 'Song READ operations'
   },
   {
-    name: 'Admin CRUD operations'
+    name: 'Album READ operations'
+  },
+  {
+    name: 'Admin CUD operations'
   }
 ]

@@ -12,16 +12,16 @@ router.route('/user').get(getAllUsers)
 router.route('/user/:id').delete(deleteUser)
 
 // Define routes for song-related operations
-router.route('/song').post(postSong)
-router.route('/song/:id').patch(patchSong).delete(deleteSong)
+router.route('/songs').post(postSong)
+router.route('/songs/:id').patch(patchSong).delete(deleteSong)
 
 // Define routes for album-related operations
-router.route('/album').post(postAlbum)
-router.route('/album/:id').patch(patchAlbum).delete(deleteAlbum)
+router.route('/albums').post(postAlbum)
+router.route('/albums/:id').patch(patchAlbum).delete(deleteAlbum)
 
 // Define routes for artist-related operations
-router.route('/artist').post(postArtist)
-router.route('/artist/:id').patch(patchAlbum).delete(deleteAlbum)
+router.route('/artists').post(postArtist)
+router.route('/artists/:id').patch(patchAlbum).delete(deleteAlbum)
 
 // Export the router object as adminRouter
 export { router as adminRouter}

@@ -1,7 +1,7 @@
 import { NextFunction, Response } from 'express'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import { getUser } from '../services/auth.service'
-import routes from '../config/routes'
+import { authorizationRequired } from '../utils/messages'
 
 // Define a middleware function that restricts access to admin users only
 export const restrictToAdminOnly = async (req : AuthenticatedRequest, res: Response, next: NextFunction) => {
@@ -9,14 +9,14 @@ export const restrictToAdminOnly = async (req : AuthenticatedRequest, res: Respo
 
   // If there is no user ID in the cookies, redirect to the login page
   if (!uid)
-    return res.redirect(`${routes.user}/login`)
+    return res.status(401).json(authorizationRequired)
 
   // Get the user object from the user ID
   const user = getUser(uid)
 
   // If there is no user object, redirect to the login page
   if (!user)
-    return res.redirect(`${routes.user}/login`)
+    return res.status(401).json(authorizationRequired)
 
   // Get the name and email of the user
   const { name, email } = user

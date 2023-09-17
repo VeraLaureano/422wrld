@@ -1,14 +1,14 @@
-export const deleteAlbumDocV1 = {
+export const deleteSongDocV1 = {
   delete: {
-    tags: ['Admin CRUD operations'], 
-    description: 'Deleting a Album', 
-    operationId: 'deleteAlbum', 
+    tags: ['Admin CUD operations'], 
+    description: 'Deleting a Song', 
+    operationId: 'deleteSong', 
     parameters: [
       {
         name: 'id', 
         in: 'path', 
         schema: {
-          $ref: '#/components/schemas/albumID', 
+          $ref: '#/components/schemas/songId', 
         },
         required: true,
         description: 'Deleting a done Song', 
@@ -16,7 +16,7 @@ export const deleteAlbumDocV1 = {
     ],
     responses: {
       204: {
-        description: 'Album deleted successfully',
+        description: 'Song deleted successfully',
         content: {
           'application/json': {
             schema: {

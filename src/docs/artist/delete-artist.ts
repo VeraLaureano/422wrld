@@ -1,29 +1,29 @@
-export const patchAlbumDocV1 = {
-  patch: {
-    tags: ['Admin CRUD operations'],
-    description: 'Update Album', 
-    operationId: 'patchAlbum', 
+export const deleteArtistDocV1 = {
+  delete: {
+    tags: ['Admin CUD operations'], 
+    description: 'Deleting a Artist', 
+    operationId: 'deleteArtist', 
     parameters: [
       {
-        name: 'id',
-        in: 'path',
+        name: 'id', 
+        in: 'path', 
         schema: {
-          $ref: '#/components/schemas/albumID',
+          $ref: '#/components/schemas/artistID', 
         },
         required: true,
-        description: 'Id of Album to be updated',
-      }
+        description: 'Deleting a done Artist', 
+      },
     ],
     responses: {
-      200: {
-        description: 'Album updated successfully',
+      204: {
+        description: 'Artist deleted successfully',
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/Album',
+              $ref: '#/components/schemas/Delete',
             },
           },
-        },
+        }, 
       },
       500: {
         description: 'Server error', 

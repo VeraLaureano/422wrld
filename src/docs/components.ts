@@ -16,6 +16,27 @@ export const artistID = {
   example: '650233cffb6479fe2c3a1f91',
 }
 
+export const User = {
+  type: 'object',
+  properties: {
+    name: {
+      type: 'string',
+      description: 'Unique user name',
+      example: 'myName'
+    },
+    email: {
+      type: 'string',
+      description: 'Unique user email',
+      example: 'hello@example.com'
+    },
+    password: {
+      type: 'string',
+      description: 'User password',
+      example: '**********'
+    }
+  } 
+}
+
 export const Song = {
   type: 'object',
   properties: {
@@ -111,7 +132,7 @@ export const Album = {
 }
 
 export const Artist = {
-  type: 'Object',
+  type: 'object',
   properties: {
     _id: {
       type: 'string',
@@ -235,4 +256,25 @@ export const ISError = {
       example: 500, // example of an error internal code
     }
   },
+}
+
+export const Unauthorized = {
+  type: 'object',
+  properties: {
+    message: {
+      type: 'string',
+      description: 'Information message', 
+      example: 'AUTHORIZATION_REQUIRED',
+    },
+    error: {
+      type: 'string',
+      description: 'Error information', 
+      example: 'UNAUTHORIZED',
+    },
+    statusCode: {
+      type: 'number',
+      description: 'HTTP status code', 
+      example: 401,
+    },
+  }
 }

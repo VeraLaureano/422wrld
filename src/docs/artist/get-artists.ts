@@ -1,8 +1,8 @@
-export const getAllSongsDocV1 = {
+export const getAllArtistsDocV1 = {
   get: {
-    tags: ['Song READ operations'], 
-    description: 'Get all songs from the database',
-    operationId: 'getAllSongs',
+    tags: ['Artist READ operations'], 
+    description: 'Get all artists from the database',
+    operationId: 'getAllArtists',
     parameters: [{
       name: 'page',
       in: 'query',
@@ -22,24 +22,6 @@ export const getAllSongsDocV1 = {
       },
     },
     {
-      name: 'artist',
-      in: 'query',
-      description: 'Filter by artist',
-      required: false,
-      schema: {
-        type: 'string',
-      },
-    },
-    {
-      name: 'producer',
-      in: 'query',
-      description: 'Filter by producer',
-      required: false,
-      schema: {
-        type: 'string',
-      },
-    },
-    {
       name: 'genre',
       in: 'query',
       description: 'Filter by genre',
@@ -50,11 +32,11 @@ export const getAllSongsDocV1 = {
     }],
     responses: {
       200: {
-        description: 'Array of Songs were obtained', 
+        description: 'Array of Artist were obtained', 
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/Song',
+              $ref: '#/components/schemas/Artist',
             },
           },
         },

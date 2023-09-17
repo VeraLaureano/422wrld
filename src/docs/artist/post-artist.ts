@@ -1,16 +1,16 @@
-export const postSongDocV1 = {
+export const postArtistDocV1 = {
   post: {
-    tags: ['Admin CRUD operations'], 
-    description: 'Create Song', 
-    operationId: 'postSong', 
+    tags: ['Admin CUD operations'], 
+    description: 'Create Artist', 
+    operationId: 'postArtist', 
     parameters: [], 
     responses: {
       201: {
-        description: 'Song created successfully',
+        description: 'Artist created successfully',
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/Song',
+              $ref: '#/components/schemas/Artist',
             },
           },
         },

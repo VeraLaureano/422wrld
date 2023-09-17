@@ -1,24 +1,24 @@
-export const getOneSongDocV1 = {
+export const getOneAlbumDocV1 = {
   get: {
-    tags: ['Song READ operations'], 
-    description: 'Get one Song from the database',
-    operationId: 'getOneSong',
+    tags: ['Album READ operations'], 
+    description: 'Get one album from the database',
+    operationId: 'getOneAlbum',
     parameters: [ {
       name: 'id',
       in: 'path',
       schema: {
-        $ref: '#/components/schemas/songID',
+        $ref: '#/components/schemas/albumID',
       },
       required: true,
-      description: 'A single Song id',
+      description: 'A single Album id',
     }],
     responses: {
       200: {
-        description: 'Song were obtained', 
+        description: 'Album were obtained', 
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/Song',
+              $ref: '#/components/schemas/Album',
             },
           },
         },

@@ -1,24 +1,24 @@
-export const getOneSongDocV1 = {
+export const getOneArtistDocV1 = {
   get: {
-    tags: ['Song READ operations'], 
-    description: 'Get one Song from the database',
-    operationId: 'getOneSong',
+    tags: ['Artist READ operations'], 
+    description: 'Get one Artist from the database',
+    operationId: 'getOneArtist',
     parameters: [ {
       name: 'id',
       in: 'path',
       schema: {
-        $ref: '#/components/schemas/songID',
+        $ref: '#/components/schemas/artistID',
       },
       required: true,
-      description: 'A single Song id',
+      description: 'A single Artist id',
     }],
     responses: {
       200: {
-        description: 'Song were obtained', 
+        description: 'Artist were obtained', 
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/Song',
+              $ref: '#/components/schemas/Artist',
             },
           },
         },
@@ -34,7 +34,7 @@ export const getOneSongDocV1 = {
         },
       },
       500: {
-        description: 'If Song not found send a 500 status code (Internal Server Error)', // response desc.
+        description: 'If Artist not found send a 500 status code (Internal Server Error)', // response desc.
         content: {
           'application/json': {
             schema: {
