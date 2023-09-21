@@ -35,7 +35,6 @@ export const postUserSignup = asyncWrapper(
       password: hashedPassword
     })  
 
-    // Redirect to /login route
     return res.status(201).json({user: name, signup: true})
   }
 )
