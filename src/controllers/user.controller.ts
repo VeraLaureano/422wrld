@@ -1,9 +1,8 @@
 import { Response } from 'express'
-import { createUser, findAllUsers, findOneUser, findAndDeleteUser } from '../services/user.service'
+import { createUser, findOneUser, findAndDeleteUser } from '../services/user.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
-import { deleteSuccess, internalServerError } from '../utils/messages'
-import { BAD_REQUEST, CONFLICT, CREATED, EVERYTHING_OK, UNAUTHORIZED } from '../config/statusCode'
+import { BAD_REQUEST, CONFLICT, CREATED, EVERYTHING_OK, NO_CONTENT, UNAUTHORIZED } from '../config/statusCode'
 import validator from 'validator'
 import { escapeSpecialCharacters } from '../utils/escapeSpecialCharacters'
 import { validatePassword } from '../utils/validatePassword'
@@ -52,9 +51,12 @@ export const postUserSignup = asyncWrapper(
       return res.status(BAD_REQUEST).json({message: 'PASSWORD_NOT_MATCH'})
 
     // Escape special characters
-    const escapedUsername = escapeSpecialCharacters(username)
-    const escapedProfileImg = escapeSpecialCharacters(profileImg)
-    const escapedBio = escapeSpecialCharacters(bio)
+    const escapedUsername: string = escapeSpecialCharacters(username)
+    const escapedProfileImg: string = escapeSpecialCharacters(profileImg)
+    const escapedBio: string = escapeSpecialCharacters(bio)
+
+    if (escapedBio.length > 100)
+      return res.status(400).json({message: 'INVALID_BIO_LENGTH'})
 
     // Hash the password using a bcrypt library
     const passwordHashed = await encryptPassword(escapedPassword)
@@ -108,24 +110,36 @@ export const postUserLogin = asyncWrapper(
   }
 )
 
-// Define a function to retrieve all users from a database
-export const getAllUsers = asyncWrapper(
-  async (_req: AuthenticatedRequest, res: Response) => {
-    // Find all users in the database
-    const data = await findAllUsers()
-
-    // Send a JSON response with the user data and a status code of 200
-    return res.status(200).json(data)
-  }
-)
-
+// Define a function to handle user deletion from a database
 export const deleteUser = asyncWrapper(
-  async ({ params: { id } }: AuthenticatedRequest, res: Response) => {
-    const data = await findAndDeleteUser(id)
+  async (req: AuthenticatedRequest, res: Response) => {
+    // Extract confirmUsername and isSure from the request body
+    const { confirmUsername, isSure } = req.body
 
-    if (!data)
-      return res.status(500).json(internalServerError('user', id))
+    if (!req.user)
+      return res.status(UNAUTHORIZED).json({message: 'USER_NO_AUTHENTICATED'})
 
-    return res.status(204).json(deleteSuccess)
+    // Extract _id and username from the request user object
+    const { _id, username } = req.user
+
+    // If confirmUsername or isSure is missing, return a bad request with an appropiate message
+    if (!confirmUsername || !isSure)
+      return res.status(BAD_REQUEST).json({message: 'DELETE_NOT_CONFIRM'})
+
+    // Escape special characters from confirmUsername
+    const escapedConfirmUsername: string = escapeSpecialCharacters(confirmUsername)
+
+    // If confirmUsername does not match the username, return a bad request with an appropiate message
+    if (escapedConfirmUsername !== username)
+      return res.status(BAD_REQUEST).json({message: 'USERNAME_NOT_MATCH'})
+
+    // Find and delete the user with the specified _id
+    await findAndDeleteUser(_id as string)
+
+    // Set undefined to request user 
+    req.user = undefined
+
+    // Return a no content response with a delete flag set to true
+    return res.status(NO_CONTENT).json({delete: true})
   }
 )

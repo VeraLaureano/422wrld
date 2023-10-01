@@ -4,4 +4,5 @@ export interface User {
   profileImg: string;
   bio: string;
   password: string;
+  _id?: string;
 }
