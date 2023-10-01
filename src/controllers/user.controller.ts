@@ -1,5 +1,5 @@
 import { Response } from 'express'
-import { createUser, findOneUser, findAndDeleteUser } from '../services/user.service'
+import { createUser, findOneUser, findAndDeleteUser, findAndUpdateUser } from '../services/user.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import { BAD_REQUEST, CONFLICT, CREATED, EVERYTHING_OK, NO_CONTENT, UNAUTHORIZED } from '../config/statusCode'
@@ -107,6 +107,68 @@ export const postUserLogin = asyncWrapper(
 
     // Return a response with the generated token
     res.status(EVERYTHING_OK).json({token})
+  }
+)
+
+// Defina a function to handle user patch request
+export const patchUser = asyncWrapper(
+  async (req: AuthenticatedRequest, res: Response) => {
+    // Extract username, profileImg, bio, password, confirmPassword from the request body
+    const { username, profileImg, bio, password, confirmPassword } = req.body
+
+    if (!req.user)
+      return res.status(UNAUTHORIZED).json({message: 'USER_NO_AUTHENTICATED'})
+
+
+    // Extract _id from request user
+    const { _id } = req.user
+
+    let newData: object = {}
+
+    // If username is provided, escape special characters and add it to newData object
+    if (username) {
+      const escapedUsername = escapeSpecialCharacters(username)
+      newData = {...newData, username: escapedUsername}
+    }
+    
+    // If profileImg is provided, escape special characters and add it to newData object
+    if (profileImg) {
+      const escapedProfileImg = escapeSpecialCharacters(profileImg)
+      newData = {...newData, profileImg: escapedProfileImg}
+    }
+    
+    // If bio is provided, escape special characters and add it to newData object
+    if (bio) {
+      const escapedBio = escapeSpecialCharacters(bio)
+      newData = {...newData, bio: escapedBio}
+    }
+
+    // If password is provided, validate it and add it to newData object
+    if (password) {
+      // Check if password and confirmPassword match
+      if (password !== confirmPassword)
+        return res.status(BAD_REQUEST).json({message: 'PASSWORD_NOT_MATCH'})
+      
+      // Escape special characters in the password and validate its format
+      const escapedPassword = escapeSpecialCharacters(password)
+      const isPasswordValid = validatePassword(escapedPassword)
+
+      // If password is too short or invalid, return a bad request response
+      if (password.length < 8 || !isPasswordValid)
+        return res.status(BAD_REQUEST).json({message: 'INVALID_PASSWORD'})
+      
+      newData = {...newData, password: escapedPassword}
+    }
+    
+    // Find and update the user with the specified ID using newData object
+    const newUser = await findAndUpdateUser(_id as string, {...newData})
+  
+    // Update the request user object with the new user data
+    if (newUser) 
+      req.user = newUser
+
+    // Return a created response with an update flag and the new user data
+    return res.status(CREATED).json({ update: true }) 
   }
 )
 
