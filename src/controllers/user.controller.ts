@@ -1,16 +1,15 @@
 import { Response } from 'express'
 import { createUser, findAllUsers, findOneUser, findAndDeleteUser } from '../services/user.service'
-import { v4 as uuidv4 } from 'uuid'
-import { setUser } from '../services/auth.service'
 import { asyncWrapper } from '../utils/asyncWrapper'
-import { compareHashes } from '../utils/compareHashes'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import { deleteSuccess, internalServerError } from '../utils/messages'
-import { BAD_REQUEST, CONFLICT, CREATED } from '../config/statusCode'
+import { BAD_REQUEST, CONFLICT, CREATED, EVERYTHING_OK, UNAUTHORIZED } from '../config/statusCode'
 import validator from 'validator'
 import { escapeSpecialCharacters } from '../utils/escapeSpecialCharacters'
 import { validatePassword } from '../utils/validatePassword'
-import { encryptPassword } from '../utils/bcrypt'
+import { comparePassword, encryptPassword } from '../utils/bcrypt'
+import { sign } from 'jsonwebtoken'
+import { SECRET_KEY } from '../config/env'
 
 // Function to handle user signup
 export const postUserSignup = asyncWrapper(
@@ -18,16 +17,19 @@ export const postUserSignup = asyncWrapper(
     // Extract username, email, profileImg, bio, password, and confirmPassword from the request body
     const {username, email, profileImg, bio, password, confirmPassword} = req.body
     
-    // Check if a user with the same email already exists
-    const isExistingUser = await findOneUser(email)
+    // Escape special characters from email
+    const escapedEmail = escapeSpecialCharacters(email)
   
+    // Validate the email format using a validator library
+    if (!email || !validator.isEmail(escapedEmail)) 
+      return res.status(BAD_REQUEST).json({message: 'INVALID_EMAIL'}) 
+
+    // Check if a user with the same email already exists
+    const isExistingUser = await findOneUser(escapedEmail)
+
     // If a user with the same email exists, return a conflict response
     if (isExistingUser)
       return res.status(CONFLICT).json({message: 'ALREADY_A_USER_WITH_THAT_EMAIL'})
-  
-    // Validate the email format using a validator library
-    if (!email || !validator.isEmail(email)) 
-      return res.status(BAD_REQUEST).json({message: 'INVALID_EMAIL'}) 
     
     // Escape special characters in the password and validate its format 
     const escapedPassword: string = escapeSpecialCharacters(password)
@@ -51,7 +53,6 @@ export const postUserSignup = asyncWrapper(
 
     // Escape special characters
     const escapedUsername = escapeSpecialCharacters(username)
-    const escapedEmail = escapeSpecialCharacters(email)
     const escapedProfileImg = escapeSpecialCharacters(profileImg)
     const escapedBio = escapeSpecialCharacters(bio)
 
@@ -69,7 +70,7 @@ export const postUserSignup = asyncWrapper(
 
     // Create the use in the database
     await createUser(userData)
-    
+
     // Return a created response with a signup flag set to true
     return res.status(CREATED).json({signup: true})
   }
@@ -77,35 +78,33 @@ export const postUserSignup = asyncWrapper(
 
 // Define a function to handle user logins
 export const postUserLogin = asyncWrapper(
-  async ({body}: AuthenticatedRequest, res: Response) => {
-    // Get the email and password from the request body
-    const { email, password } = body
+  async (req: AuthenticatedRequest, res: Response) => {
+    // Extract email and password from the request body
+    const { email, password } = req.body
 
-    // Find the user with the specified email
-    const data = await findOneUser(email)
+    // Escape special characters from email and password
+    const escapedEmail: string = escapeSpecialCharacters(email)
+    const escapedPassword: string = escapeSpecialCharacters(password)
 
-    // Redirect to home if the user does not exist
-    if (!data) 
-      return res.status(500).json(internalServerError('user', email))
+    // Find the user with the specified email 
+    const user = await findOneUser(escapedEmail)
 
-    // Compare the password with the hashed password in the database
-    const isCorrect: boolean = await compareHashes(password, data.password)
+    // If no user is found, return an unauthorized response
+    if (!user)
+      return res.status(UNAUTHORIZED).json({message: 'INVALID_CREDENTIALS'})
 
-    // Return an error if the password is incorrect
-    if (!isCorrect)
-      return res.status(500).json({
-        message: 'EMAIL_OR_PASSWORD_INCORRECT',
-        error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
-      })
+    // Compare the provided password with the stored password hash
+    const isMatch: Promise<boolean> = comparePassword(escapedPassword, user.password)
 
-    // Generate a new session ID and store the user data in a Map
-    const sessionID = uuidv4()
-    setUser(sessionID, data)
+    // If the passwords do not match, return an unauthorized response
+    if (!isMatch)
+      return res.status(UNAUTHORIZED).json({message: 'INVALID_CREDENTIALS'})
 
-    // Set a cookie with the session ID and return the user data
-    res.cookie('uid', sessionID)
-    return res.redirect('/')
+    // Generate a JSON Web Token (JWT) for the authenticated user
+    const token = sign({userId: user._id}, String(SECRET_KEY), {expiresIn: '1h'})
+
+    // Return a response with the generated token
+    res.status(EVERYTHING_OK).json({token})
   }
 )
 
