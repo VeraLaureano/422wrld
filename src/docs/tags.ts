@@ -7,8 +7,5 @@ export const tags = [
   },
   {
     name: 'Album READ operations'
-  },
-  {
-    name: 'Admin CUD operations'
   }
 ]

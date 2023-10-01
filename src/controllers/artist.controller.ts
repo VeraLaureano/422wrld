@@ -5,6 +5,7 @@ import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import ArtistModel from '../models/Artist.model'
 import { regex } from '../utils/regex'
 import { deleteSuccess, internalServerError } from '../utils/messages'
+import { CREATED, EVERYTHING_OK, INTERNAL_SERVER_ERROR, NO_CONTENT } from '../config/statusCode'
 
 /**
  * @method [GET]
@@ -23,7 +24,7 @@ export const getAllArtists = asyncWrapper(
 
     const data = await findAllArtists(pageNumber, artistsPerPage, dataFind)
 
-    return res.status(200).json(data)
+    return res.status(EVERYTHING_OK).json(data)
   }
 )
 
@@ -39,13 +40,12 @@ export const getOneArtist = asyncWrapper(
 
     // If no artist was found with the given id, return an error response.
     if (!data) 
-      return res.status(500).json(internalServerError('artist', id))
+      return res.status(INTERNAL_SERVER_ERROR).json(internalServerError('artist', id))
 
     // If the artist was successfully found, return a success response with the artist's data.
-    return res.status(200).json(data)
+    return res.status(EVERYTHING_OK).json(data)
   }
 )
-
 
 /**
  * @method [POST]
@@ -58,10 +58,9 @@ export const postArtist = asyncWrapper (
     const newData = await createArtist(body)
 
     // Return a success response with the newly created artist's data.
-    return res.status(201).json(newData)
+    return res.status(CREATED).json(newData)
   }
 )
-
 
 /**
  * @method [PATCH]
@@ -75,10 +74,10 @@ export const patchArtist = asyncWrapper(
 
     // If no artist was found with the given id, return an error response.
     if (!newData) 
-      return res.status(500).json(internalServerError('artist', id))
+      return res.status(INTERNAL_SERVER_ERROR).json(internalServerError('artist', id))
 
     // If the artist was successfully updated, return a success response.
-    return res.status(201).json(newData)
+    return res.status(CREATED).json(newData)
   }
 )
 /**
@@ -93,9 +92,9 @@ export const deleteArtist = asyncWrapper(
 
     // If no artist was found with the given id, return an error response.
     if (!data)
-      return res.status(500).json(internalServerError('artist', id))
+      return res.status(INTERNAL_SERVER_ERROR).json(internalServerError('artist', id))
 
     // If the artist was successfully deleted, return a success response.
-    return res.status(204).json(deleteSuccess)
+    return res.status(NO_CONTENT).json(deleteSuccess)
   }
 )

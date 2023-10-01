@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose'
 import { User } from '../interfaces/user.interface'
 
 const UserSchema = new Schema<User>({
-  name: {
+  username: {
     type: String,
     required: [true, 'MUST_PROVIDE_NAME'],
     unique: true
@@ -11,6 +11,14 @@ const UserSchema = new Schema<User>({
     type: String,
     required: [true, 'MUST_PROVIDE_EMAIL'],
     unique: true
+  },
+  profileImg: {
+    type: String,
+    unique: true
+  },
+  bio: {
+    type: String,
+    maxlength: 100
   },
   password: {
     type: String,

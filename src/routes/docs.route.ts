@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { setup } from 'swagger-ui-express'
-import {  setupDocs } from '../docs'
+import { setupDocs } from '../docs'
 
 const router = Router()
 

@@ -5,6 +5,7 @@ import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
 import AlbumModel from '../models/Album.model'
 import { regex } from '../utils/regex'
 import { deleteSuccess, internalServerError } from '../utils/messages'
+import { CREATED, EVERYTHING_OK, INTERNAL_SERVER_ERROR, NO_CONTENT } from '../config/statusCode'
 
 /**
  * @method [GET]
@@ -23,7 +24,7 @@ export const getAllAlbums = asyncWrapper(
 
     const data = await findAllAlbums(pageNumber, albumsPerPage, dataFind)
 
-    res.status(200).json(data)
+    res.status(EVERYTHING_OK).json(data)
   }
 )
 
@@ -36,9 +37,9 @@ export const getOneAlbum = asyncWrapper(
     const data = await findOneAlbum(id)
 
     if (!data)
-      return res.status(500).json(internalServerError('album', id))
+      return res.status(INTERNAL_SERVER_ERROR).json(internalServerError('album', id))
 
-    return res.status(200).json(data)
+    return res.status(EVERYTHING_OK).json(data)
   }
 )
 
@@ -49,7 +50,7 @@ export const getOneAlbum = asyncWrapper(
 export const postAlbum = asyncWrapper(
   async ({body}: AuthenticatedRequest, res: Response) => {
     const newData = await createAlbum(body)
-    return res.status(201).json(newData)
+    return res.status(CREATED).json(newData)
   }
 )
 
@@ -62,13 +63,13 @@ export const patchAlbum = asyncWrapper(
     const data = await findAndUpdateAlbum(id, body)
 
     if (!data)
-      res.status(500).json({
+      res.status(INTERNAL_SERVER_ERROR).json({
         message: `NO_ALBUM_WITH_ID_${id}`,
         error: 'INTERNAL_SERVER_ERROR',
-        statusCode: 500
+        statusCode: INTERNAL_SERVER_ERROR
       })
     
-    return res.status(201).json(data)
+    return res.status(CREATED).json(data)
   }
 )
 
@@ -81,8 +82,8 @@ export const deleteAlbum = asyncWrapper(
     const data = await findAndDeleteAlbum(id)
 
     if (!data)
-      return res.status(500).json(internalServerError('album', id))
+      return res.status(INTERNAL_SERVER_ERROR).json(internalServerError('album', id))
 
-    return res.status(204).json(deleteSuccess)
+    return res.status(NO_CONTENT).json(deleteSuccess)
   }
 )

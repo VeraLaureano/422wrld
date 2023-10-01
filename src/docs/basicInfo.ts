@@ -7,7 +7,7 @@ export const basicInfo = {
     contact: {
       name: 'Laureano Vera', 
       email: 'laureanoivangerardovera@gmail.com', 
-      url: 'https://veralaureano.netlify.app/',
+      url: 'https://github.com/VeraLaureano',
     },
   }
 }
