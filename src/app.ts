@@ -4,13 +4,13 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import routes from './config/routes'
 import { notFound } from './middlewares/notFound'
-import { restrictToAdminOnly } from './middlewares/admin'
-import { restrictTologgedInUserOnly } from './middlewares/auth'
+// import { restrictToAdminOnly } from './middlewares/admin'
+import { authentication } from './middlewares/auth'
 import { artistsRouter } from './routes/artist.route'
 import { albumRouter } from './routes/album.route'
 import { songRouter } from './routes/song.route'
 import { userRouter } from './routes/user.route'
-import { adminRouter } from './routes/admin.route'
+// import { adminRouter } from './routes/admin.route'
 import { serve } from 'swagger-ui-express'
 import { docsRouter } from './routes/docs.route'
 
@@ -26,9 +26,9 @@ app.use(express.static('public')) // Public directory
 
 // Set up routing
 app.use(routes.user, userRouter) // User routes
-app.use(routes.admin, restrictToAdminOnly, adminRouter) // Admin routes
-app.use(routes.artists, restrictTologgedInUserOnly, artistsRouter) // Artist routes
-app.use(routes.albums, restrictTologgedInUserOnly, albumRouter) // Album routes
+// app.use(routes.admin, restrictToAdminOnly, adminRouter) // Admin routes
+app.use(routes.artists, authentication, artistsRouter) // Artist routes
+app.use(routes.albums, authentication, albumRouter) // Album routes
 app.use(routes.songs, songRouter) // Song routes
 app.use(routes.docs, serve, docsRouter)
 

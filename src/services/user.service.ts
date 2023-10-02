@@ -11,6 +11,11 @@ export const findOneUser = async (email: string) => {
   return responseUser
 }
 
+export const findUserAuth = async (userId: string) => {
+  const responseUser = await UserModel.findById({ _id: userId })
+  return responseUser
+}
+
 export const findAllUsers = async () => {
   const responseUsers = await UserModel.find({})
   return responseUsers

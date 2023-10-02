@@ -16,12 +16,12 @@ export const postUserSignup = asyncWrapper(
     // Extract username, email, profileImg, bio, password, and confirmPassword from the request body
     const {username, email, profileImg, bio, password, confirmPassword} = req.body
     
+    // Validate the email format using a validator library
+    if (!email || !validator.isEmail(email)) 
+      return res.status(BAD_REQUEST).json({message: 'INVALID_EMAIL'}) 
+    
     // Escape special characters from email
     const escapedEmail = escapeSpecialCharacters(email)
-  
-    // Validate the email format using a validator library
-    if (!email || !validator.isEmail(escapedEmail)) 
-      return res.status(BAD_REQUEST).json({message: 'INVALID_EMAIL'}) 
 
     // Check if a user with the same email already exists
     const isExistingUser = await findOneUser(escapedEmail)
@@ -38,17 +38,28 @@ export const postUserSignup = asyncWrapper(
     if (!password || password.length < 8 || !isPasswordValid)
       return res.status(BAD_REQUEST).json({message: 'INVALID_PASSWORD'})
 
-    // Escape special characters in the confirmPassword and validate its format 
-    const escapedConfirmPassword: string = escapeSpecialCharacters(confirmPassword)
-    const isConfirmPasswordValid: boolean = validatePassword(escapedConfirmPassword)
-
     // If the confirmPassword is missing, too short, or invalid, return a bad request response
-    if (!confirmPassword || password.length < 8 || !isConfirmPasswordValid)
+    if (!confirmPassword || password.length < 8 )
       return res.status(BAD_REQUEST).json({message: 'INVALID_CONFIRM_PASSWORD'})
 
+    // Escape special characters in the confirmPassword and validate its format 
+    const escapedConfirmPassword: string = escapeSpecialCharacters(confirmPassword)
+ 
     // If the password and confirmPassword do not match, return a bad request response
-    if (password !== confirmPassword)
+    if (escapedPassword !== escapedConfirmPassword)
       return res.status(BAD_REQUEST).json({message: 'PASSWORD_NOT_MATCH'})
+      
+    // If the username is missing return a bad request response
+    if (!username)
+      return res.status(BAD_REQUEST).json({message: 'USERNAME_NOT_FOUND'})
+      
+    // If the profileImg is missing return a bad request response
+    if (!profileImg)
+      return res.status(BAD_REQUEST).json({message: 'PROFILE_IMAGE_NOT_FOUND'})
+
+    // If the profileImg is missing return a bad request response
+    if (!bio)
+      return res.status(BAD_REQUEST).json({message: 'BIO_NOT_FOUND'})
 
     // Escape special characters
     const escapedUsername: string = escapeSpecialCharacters(username)
@@ -83,6 +94,14 @@ export const postUserLogin = asyncWrapper(
   async (req: AuthenticatedRequest, res: Response) => {
     // Extract email and password from the request body
     const { email, password } = req.body
+
+    // If email is missing, return a bad request response
+    if (!email)
+      return res.status(BAD_REQUEST).json({message: 'EMAIL_NOT_FOUND'})
+
+    // If password is missing, return a bad request response
+    if (!password)
+      return res.status(BAD_REQUEST).json({message: 'PASSWORD_NOT_FOUND'})
 
     // Escape special characters from email and password
     const escapedEmail: string = escapeSpecialCharacters(email)

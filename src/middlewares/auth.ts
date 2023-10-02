@@ -1,42 +1,41 @@
 // Import modules
 import { NextFunction, Response } from 'express'
-import { getUser } from '../services/auth.service'
 import { AuthenticatedRequest } from '../interfaces/authRequest.interface'
-import { authorizationRequired } from '../utils/messages'
+import { UNAUTHORIZED } from '../config/statusCode'
+import { decoded } from '../utils/decoded'
+import { findUserAuth } from '../services/user.service'
+import { logError } from '../utils/loggers'
 
 // Define a middleware function to restrict access to certain routes to logged-in users only
-export const restrictTologgedInUserOnly = async (req : AuthenticatedRequest, res: Response, next: NextFunction) => {
-  // Get session ID from cookie
-  const { cookies: {uid} } = req
+export const authentication = async (req : AuthenticatedRequest, res: Response, next: NextFunction) => {
+  // Extract the 'authorization' header from the request
+  const auth = req.headers.authorization
 
+  // If 'authorization' header is missing or does not start with 'Bearer ', return an unauthorized response
+  if (!auth || !auth.startsWith('Bearer '))               
+    return res.status(UNAUTHORIZED).json({message: 'UNAUTHORIZED'})
 
-  // Check if user is logged in
-  if (!uid)
-    // the redirection fails because it sends to the route but with the GET method instead of POST, jajajaja noooo epic fail
-    return res.status(401).json(authorizationRequired)
+  // Extract the token from the 'authorization' header
+  const token = auth.split(' ')[1]
 
-  // Get user object from Map
-  const user = getUser(uid)
+  try {
+    // Decode the token to get userId
+    const { userId } = decoded(token)
 
-  // Check if user object exists
-  if (!user)
-    return res.status(401).json(authorizationRequired)
+    // Find the user with the specified userId
+    const user = await findUserAuth(userId)
 
-  req.user = user
+    // If no user is found, return an unauthorized response
+    if (!user)
+      return res.status(UNAUTHORIZED).json({message: 'USER_NOT_FOND'})
+
+    // Set the request user object to the found object
+    req.user = user
+  } catch (error) {
+    logError(error)
+  }
 
   // Call next middleware function
   next()
 }
 
-export const checkAuth = (req: AuthenticatedRequest, _res: Response, next: NextFunction) => {
-  // Get session ID from cookie
-  const { cookies: {uid} } = req
-
-  // Get user object from Map
-  const user = getUser(uid)
-
-  req.user = user
-  
-  // Call next middleware function
-  next()
-}
