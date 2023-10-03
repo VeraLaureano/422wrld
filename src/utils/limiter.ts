@@ -7,10 +7,18 @@ export const apiLimiter: RateLimitRequestHandler = rateLimit({
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 })
 
-export const createAccountLimiter: RateLimitRequestHandler = rateLimit({
+export const signupLimiter: RateLimitRequestHandler = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
   limit: 5, // Limit each IP to 5 create account requests per `window` (here, per hour)
-  message: 'Too many accounts created from this IP, please try again after an hour',
+  message: 'Too many signups from this IP, please try again after an hour',
+  standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+})
+
+export const loginLimiter: RateLimitRequestHandler = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  limit: 10, // Limit each IP to 5 create account requests per `window` (here, per hour)
+  message: 'Too many logins from this IP, please try again after an hour',
   standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 })

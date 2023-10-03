@@ -6,6 +6,7 @@ const routes = {
   artists: `/api/${VERSION}/artists`,
   albums: `/api/${VERSION}/albums`,
   songs: `/api/${VERSION}/songs`,
+  csfr: `/api/${VERSION}/csrf-token`,
   docs: '/api-docs'
 }
 
