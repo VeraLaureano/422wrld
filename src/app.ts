@@ -13,6 +13,7 @@ import { userRouter } from './routes/user.route'
 // import { adminRouter } from './routes/admin.route'
 import { serve } from 'swagger-ui-express'
 import { docsRouter } from './routes/docs.route'
+import { apiLimiter } from './utils/limiter'
 
 // Create an Express application
 const app = express()
@@ -23,6 +24,7 @@ app.use(cors()) // Enable CORS
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser()) // Parse cookie headers
 app.use(express.static('public')) // Public directory
+app.use(apiLimiter)
 
 // Set up routing
 app.use(routes.user, userRouter) // User routes
