@@ -22,6 +22,7 @@ const UserSchema = new Schema<User>({
   },
   password: {
     type: String,
+    minlength: [10, 'PASSWORD_MIN_LENGTH_10'],
     required: [true, 'MUST_PROVIDE_PASSWORD'],
   }
 }, 

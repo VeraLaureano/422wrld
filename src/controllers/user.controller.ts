@@ -9,6 +9,7 @@ import { validatePassword } from '../utils/validatePassword'
 import { comparePassword, encryptPassword } from '../utils/bcrypt'
 import { sign } from 'jsonwebtoken'
 import { SECRET_KEY } from '../config/env'
+import { cleanXSS } from '../utils/sanitize'
 
 // Function to handle user signup
 export const postUserSignup = asyncWrapper(
@@ -35,12 +36,8 @@ export const postUserSignup = asyncWrapper(
     const isPasswordValid: boolean = validatePassword(escapedPassword)
 
     // If the password is missing, too short, or invalid, return a bad request response
-    if (!password || password.length < 8 || !isPasswordValid)
+    if (!password || password.length < 10 || !isPasswordValid)
       return res.status(BAD_REQUEST).json({message: 'INVALID_PASSWORD'})
-
-    // If the confirmPassword is missing, too short, or invalid, return a bad request response
-    if (!confirmPassword || password.length < 8 )
-      return res.status(BAD_REQUEST).json({message: 'INVALID_CONFIRM_PASSWORD'})
 
     // Escape special characters in the confirmPassword and validate its format 
     const escapedConfirmPassword: string = escapeSpecialCharacters(confirmPassword)
@@ -69,15 +66,22 @@ export const postUserSignup = asyncWrapper(
     if (escapedBio.length > 100)
       return res.status(400).json({message: 'INVALID_BIO_LENGTH'})
 
+    // Sanitize inputs for prevent XSS attacks
+    const cleanUsername = cleanXSS(escapedUsername)
+    const cleanEmail = cleanXSS(escapedEmail)
+    const cleanProfileImg = cleanXSS(escapedProfileImg)
+    const cleanBio = cleanXSS(escapedBio)
+    const cleanPassword = cleanXSS(escapedPassword)
+
     // Hash the password using a bcrypt library
-    const passwordHashed = await encryptPassword(escapedPassword)
+    const passwordHashed = await encryptPassword(cleanPassword)
 
     // Create a user data object with escaped values
     const userData = {
-      username: escapedUsername,
-      email: escapedEmail,
-      profileImg: escapedProfileImg,
-      bio: escapedBio,
+      username: cleanUsername,
+      email: cleanEmail,
+      profileImg: cleanProfileImg,
+      bio: cleanBio,
       password: passwordHashed
     }
 
@@ -107,15 +111,19 @@ export const postUserLogin = asyncWrapper(
     const escapedEmail: string = escapeSpecialCharacters(email)
     const escapedPassword: string = escapeSpecialCharacters(password)
 
+    // Sanitize email and password for prevent XSS attacks
+    const cleanEmail: string = cleanXSS(escapedEmail)
+    const cleanPassword: string = cleanXSS(escapedPassword)
+
     // Find the user with the specified email 
-    const user = await findOneUser(escapedEmail)
+    const user = await findOneUser(cleanEmail)
 
     // If no user is found, return an unauthorized response
     if (!user)
       return res.status(UNAUTHORIZED).json({message: 'INVALID_CREDENTIALS'})
 
     // Compare the provided password with the stored password hash
-    const isMatch: Promise<boolean> = comparePassword(escapedPassword, user.password)
+    const isMatch: Promise<boolean> = comparePassword(cleanPassword, user.password)
 
     // If the passwords do not match, return an unauthorized response
     if (!isMatch)
@@ -138,7 +146,6 @@ export const patchUser = asyncWrapper(
     if (!req.user)
       return res.status(UNAUTHORIZED).json({message: 'USER_NO_AUTHENTICATED'})
 
-
     // Extract _id from request user
     const { _id } = req.user
 
@@ -147,19 +154,22 @@ export const patchUser = asyncWrapper(
     // If username is provided, escape special characters and add it to newData object
     if (username) {
       const escapedUsername = escapeSpecialCharacters(username)
-      newData = {...newData, username: escapedUsername}
+      const cleanUsername = cleanXSS(escapedUsername)
+      newData = {...newData, username: cleanUsername}
     }
     
     // If profileImg is provided, escape special characters and add it to newData object
     if (profileImg) {
       const escapedProfileImg = escapeSpecialCharacters(profileImg)
-      newData = {...newData, profileImg: escapedProfileImg}
+      const cleanProfileImg = cleanXSS(escapedProfileImg)
+      newData = {...newData, profileImg: cleanProfileImg}
     }
     
     // If bio is provided, escape special characters and add it to newData object
     if (bio) {
       const escapedBio = escapeSpecialCharacters(bio)
-      newData = {...newData, bio: escapedBio}
+      const cleanBio = cleanXSS(escapedBio)
+      newData = {...newData, bio: cleanBio}
     }
 
     // If password is provided, validate it and add it to newData object
@@ -171,12 +181,13 @@ export const patchUser = asyncWrapper(
       // Escape special characters in the password and validate its format
       const escapedPassword = escapeSpecialCharacters(password)
       const isPasswordValid = validatePassword(escapedPassword)
+      const cleanPassword = cleanXSS(escapedPassword)
 
       // If password is too short or invalid, return a bad request response
-      if (password.length < 8 || !isPasswordValid)
+      if (password.length < 10 || !isPasswordValid)
         return res.status(BAD_REQUEST).json({message: 'INVALID_PASSWORD'})
       
-      newData = {...newData, password: escapedPassword}
+      newData = {...newData, password: cleanPassword}
     }
     
     // Find and update the user with the specified ID using newData object
