@@ -182,12 +182,13 @@ export const patchUser = asyncWrapper(
       const escapedPassword = escapeSpecialCharacters(password)
       const isPasswordValid = validatePassword(escapedPassword)
       const cleanPassword = cleanXSS(escapedPassword)
+      const passwordHashed = await encryptPassword(cleanPassword)
 
       // If password is too short or invalid, return a bad request response
       if (password.length < 10 || !isPasswordValid)
         return res.status(BAD_REQUEST).json({message: 'INVALID_PASSWORD'})
       
-      newData = {...newData, password: cleanPassword}
+      newData = {...newData, password: passwordHashed}
     }
     
     // Find and update the user with the specified ID using newData object
