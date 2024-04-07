@@ -62,10 +62,10 @@ export const postUserSignup = asyncWrapper(
     const escapedUsername: string = escapeSpecialCharacters(username)
     const escapedProfileImg: string = escapeSpecialCharacters(profileImg)
     const escapedBio: string = escapeSpecialCharacters(bio)
-
+  
     if (escapedBio.length > 100)
       return res.status(400).json({message: 'INVALID_BIO_LENGTH'})
-
+  
     // Sanitize inputs for prevent XSS attacks
     const cleanUsername = cleanXSS(escapedUsername)
     const cleanEmail = cleanXSS(escapedEmail)
